@@ -1,0 +1,25 @@
+@import url(../../vendor/fonts.css);
+
+.about {
+max-width: 1200px;
+margin: 0 auto;
+padding: 40px 20px;
+}
+
+.about__title {
+font-family: 'Roboto Slab', Arial, sans-serif;
+font-weight: 400;
+font-size: 40px;
+line-height: 46px;
+letter-spacing: 0px;
+
+}
+
+.about__text {
+font-family: 'Roboto', Arial, sans-serif;
+font-weight: 400;
+font-size: 18px;
+line-height: 24px;
+letter-spacing: 0px;
+
+}

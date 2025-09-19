@@ -1,6 +1,6 @@
 /* Inter Regular (400) */
 @font-face {
-  src: url('./fonts/inter-400-regular.woff2') format('woff2'),
+  src: url('./fonts/inter-400-regular.woff') format('woff2'),
        url('./fonts/inter-400-regular.woff') format('woff');
   font-family: 'Inter';
   font-weight: 400;

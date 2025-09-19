@@ -9,7 +9,12 @@ function Footer() {
         
         <nav className="footer__nav">
           <a href="#" className="footer__link">Home</a>
-          <a href="#" className="footer__link">TripleTen</a>
+          <a 
+          href="https://tripleten.com/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          aria-label="TripleTen"
+          className="footer__link">TripleTen</a>
         </nav>
         
         <div className="footer__social">
@@ -22,15 +27,15 @@ function Footer() {
           >
             <img src={GithubIcon} alt="GitHub" width="24" height="24" />
           </a>
-         { <a 
-  href="https://www.linkedin.com/in/elissanyberg/" 
-  target="_blank" 
-  rel="noopener noreferrer"
-  aria-label="LinkedIn profile"
-  className="footer__social-link"
+          <a 
+            href="https://www.linkedin.com/in/elissanyberg/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            aria-label="LinkedIn profile"
+            className="footer__social-link"
 >
   <img src={LinkedInIcon} alt="LinkedIn" width="24" height="24" />
-</a> }
+</a> 
         </div>
       </div>
     </footer>

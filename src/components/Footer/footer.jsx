@@ -1,9 +1,18 @@
+import "./footer.css"
+
 function Footer() {
     return (
-        <div>
-            <p>© 2025 Elissa Nyberg - News Explorer</p>
-            <p>Powered by NewsAPI</p>
-        </div>
+        <footer>
+            <p>© 2024 Supersite, Powered by News API</p>
+            <nav>
+    <a>Home</a>
+    <a>TripleTen</a>
+  </nav>
+  <div className="social-icons">
+    {/* placeholder social icons */}
+  </div>
+        </footer>
+        
     );
 }
 

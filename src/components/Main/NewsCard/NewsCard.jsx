@@ -1,0 +1,57 @@
+import React, { useState } from "react";
+import "./NewsCard.css";
+
+function NewsCard({ article, onSave }) {
+    const [saved, setSaved] = useState(false);
+    
+    const formattedDate = new Date(article.publishedAt).toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric"
+    });
+
+    function handleSave(e) {
+        e.preventDefault();
+        setSaved(s => !s);
+        if (onSave) onSave(article, !saved);
+    }
+
+    return (
+            <article className="news-card">
+            <div className="news-card__media">
+                {article.urlToImage ? (
+                <img
+                    src={article.urlToImage}
+                    alt={article.title}
+                    className="news-card__image"
+                    loading="lazy"
+                    onError={(e) => {
+                        e.currentTarget.style.display = "none";
+                    }}
+                    />
+                ) : (
+                <div className="news-card__placeholder">No image</div>
+            )}
+
+            <button
+                type="button"
+                className={`news-card__save-btn ${saved ? "is-saved" : ""}`}
+                onClick={handleSave}
+                aria-label={saved ? "Unsave article" : "Save article"}
+                aria-pressed={saved}
+            >
+                {saved ? "Saved" : "Save"}
+            </button>
+            </div>
+
+            <div className="news-card__content">
+                <p className="news-card__date">{formattedDate}</p>
+                <p className="news-card__source">{article.source?.name}</p>
+                <h3 className="news-card__title">{article.title}</h3>
+                <p className="news-card__description">{article.description}</p>
+        </div>
+        </article>
+    );
+}
+
+export default NewsCard;

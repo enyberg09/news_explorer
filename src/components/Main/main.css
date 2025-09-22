@@ -42,7 +42,9 @@ background-color: #FFF;
 border-radius: 100px;
 border: none;
 width: 608px;
-height: 64px;margin: 88px auto 80px;
+height: 64px;
+margin: 88px auto 80px;
+max-width: 100%;
 }
 
 .main__search-input {
@@ -55,7 +57,6 @@ letter-spacing: 0px;
 border-radius: 100px;
 border: none;
 flex: 1;
-margin-top: 88px;
 padding-left: 24px;
 }
 

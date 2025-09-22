@@ -1,6 +1,10 @@
 import "./main.css"
+import { useState } from 'react';
+import NewsCardList from './NewsCardList/NewsCardList';
+
 
 function Main() {
+    const [newsArticles, setNewsArticles] = useState([]);
     return (
         <main className="main">
             <img 
@@ -21,6 +25,7 @@ function Main() {
                         Search
                     </button>
             </form>
+           <NewsCardList newsArticles={newsArticles} />
             </div>
                    </main>
         

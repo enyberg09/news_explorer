@@ -1,11 +1,14 @@
 import NewsCard from '../NewsCard/NewsCard';
 import './NewsCardList.css';
 
-function NewsCardList({ newsArticles }) {
+function NewsCardList({ newsArticles, onSaveArticle }) {
     return (
         <div className="news-card-list">
             {newsArticles.map((article) => (
-                <NewsCard key={article.id} article={article} />
+                <NewsCard 
+                key={article.id} 
+                article={article}
+                onSave={onSaveArticle} />
             ))}
         </div>
     );

@@ -3,6 +3,14 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .logo {
@@ -16,6 +24,17 @@
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.news-card-container {
+  display: flex;
+  flex-direction: row;
+  gap: 16px; 
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 @keyframes logo-spin {

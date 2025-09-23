@@ -19,19 +19,29 @@ function NewsCard({ article, onSave }) {
     return (
             <article className="news-card">
             <div className="news-card__media">
-                {article.urlToImage ? (
-                <img
-                    src={article.urlToImage}
-                    alt={article.title}
-                    className="news-card__image"
-                    loading="lazy"
-                    onError={(e) => {
-                        e.currentTarget.style.display = "none";
-                    }}
-                    />
-                ) : (
-                <div className="news-card__placeholder">No image</div>
-            )}
+           {/* ===== TEMPORARY CODE FOR CSS TESTING ===== */}
+    <img
+        src="https://picsum.photos/400/272"
+        alt="placeholder"
+        className="news-card__image"
+        loading="lazy"
+    />
+
+    {/* ===== REAL CODE (COMMENTED OUT FOR NOW) =====
+    {article.urlToImage ? (
+        <img
+            src={article.urlToImage}
+            alt={article.title}
+            className="news-card__image"
+            loading="lazy"
+            onError={(e) => {
+                e.currentTarget.style.display = "none";
+            }}
+        />
+    ) : (
+        <div className="news-card__placeholder">No image</div>
+    )}
+    */}
 
             <button
                 type="button"
@@ -40,7 +50,6 @@ function NewsCard({ article, onSave }) {
                 aria-label={saved ? "Unsave article" : "Save article"}
                 aria-pressed={saved}
             >
-                {saved ? "Saved" : "Save"}
             </button>
             </div>
 

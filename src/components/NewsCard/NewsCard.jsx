@@ -55,9 +55,9 @@ function NewsCard({ article, onSave }) {
 
             <div className="news-card__content">
                 <p className="news-card__date">{formattedDate}</p>
-                <p className="news-card__source">{article.source?.name}</p>
                 <h3 className="news-card__title">{article.title}</h3>
                 <p className="news-card__description">{article.description}</p>
+                <p className="news-card__source">{article.source?.name}</p>
         </div>
         </article>
     );

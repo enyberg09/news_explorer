@@ -1,48 +1,56 @@
-import "./main.css"
-import { useState } from 'react';
+import "./main.css";
+import { useState } from "react";
 import NewsCardList from "../NewsCardList/NewsCardList";
-
+import Preloader from "../Preloader/Preloader";
 
 function Main() {
   const [newsArticles, setNewsArticles] = useState([]);
   const [savedArticles, setSavedArticles] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [loading, setLoading] = useState(false);
 
   // handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Search submitted!", searchTerm);
 
-    // temporary test articles
-    const testArticles = [
-      {
-        id: 1,
-        title: `Result for "${searchTerm}"`,
-        description: "This is just a test article.",
-        image: "https://via.placeholder.com/400x200",
-        source: "Test Source",
-        publishedAt: "2024-01-01"
-      }
-    ];
-    setNewsArticles(testArticles);
+    if (!searchTerm.trim()) return; // prevent empty searches
+
+    setLoading(true); // show preloader
+
+    // simulate API call
+    setTimeout(() => {
+      const testArticles = [
+        {
+          id: 1,
+          title: `Result for "${searchTerm}"`,
+          description: "This is just a test article.",
+          image: "https://via.placeholder.com/400x200",
+          source: "Test Source",
+          publishedAt: "2024-01-01",
+        },
+      ];
+      setNewsArticles(testArticles);
+      setLoading(false); // hide preloader
+    }, 1500);
   };
 
   // handle save/unsave from child cards
   const handleSaveArticle = (article, isSaved) => {
     if (isSaved) {
-      setSavedArticles(prev => [...prev, article]);
+      setSavedArticles((prev) => [...prev, article]);
     } else {
-      setSavedArticles(prev => prev.filter(a => a.id !== article.id));
+      setSavedArticles((prev) => prev.filter((a) => a.id !== article.id));
     }
   };
 
   return (
     <main className="main">
-      <img 
-        src="../../src/images/main-page-pic.svg" 
-        alt="Main page pic" 
+      <img
+        src="../../src/images/main-page-pic.svg"
+        alt="Main page pic"
         className="main__image"
       />
+
       <div className="main__content">
         <h1 className="main__title">What's going on in the world?</h1>
         <p className="main__subtitle">
@@ -61,12 +69,22 @@ function Main() {
             Search
           </button>
         </form>
-
-        <NewsCardList 
-          newsArticles={newsArticles} 
-          onSaveArticle={handleSaveArticle} 
-        />
       </div>
+
+      {/* NEWS SECTION: preloader or cards */}
+      <section className="news-section">
+        {loading ? (
+          <div className="news-section__preloader">
+            <Preloader />
+            <p className="news-section__preloader-text">Searching for news...</p>
+          </div>
+        ) : (
+          <NewsCardList
+            newsArticles={newsArticles}
+            onSaveArticle={handleSaveArticle}
+          />
+        )}
+      </section>
     </main>
   );
 }

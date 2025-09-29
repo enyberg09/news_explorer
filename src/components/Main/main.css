@@ -85,3 +85,8 @@ color: #FFF;
 .main__search-button:hover {
   
 }
+
+.news-section {
+  background-color: #F5F6F7;
+  padding: 80px 0;
+}

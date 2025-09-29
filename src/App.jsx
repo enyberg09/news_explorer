@@ -35,11 +35,13 @@ const testArticle = [
     <div>
       <Header />
       <Main />
-       <div className="news-card-container"> 
-      {testArticle.map((article, index) => (
-        <NewsCard key={index} article={article} />
-      ))}
-    </div>
+      <section className="news-section"> 
+      <div className="news-card-container"> 
+        {testArticle.map((article, index) => (
+          <NewsCard key={index} article={article} />
+        ))}
+      </div>
+    </section>
       <About />
       <Footer />
           </div>

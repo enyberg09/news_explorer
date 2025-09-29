@@ -1,0 +1,90 @@
+.news-card-list {
+  width: 100%;
+  margin-bottom: 0;
+  background-color: #f5f6f7;
+  display: block;
+}
+.news-card-list__btn-container {
+    width: 100%;
+    max-width: 288px;
+    margin-top: 20px;
+    margin-bottom: 0;
+    text-align: center;
+    max-width: 1232px;
+}
+.news-card-list__container {
+ display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 64px;
+  max-width: 1232px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.news-card-list__show-more-btn {
+    width: 100%;
+    height: 64px;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.15);
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    background-color: #FFF;
+    color: #1a1b22;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+.news-card-list__show-more-btn:hover {
+    background-color: #e8e8e8;
+    opacity: 0.9;
+}
+.news-card-list--saved-news {
+    background-color: #f5f6f7;
+}
+.news-card-list__title {
+    width: 100%;
+    max-width: 1232px;
+    margin-bottom: 64px;
+    font-family: 'Roboto Slab', Arial, sans-serif;
+    font-weight: 700;
+    line-height: 46px;
+    color: #1a1b22;
+}
+@media screen and (max-width: 768px) {
+  .news-card-list {
+    padding: 32px 16px;
+  }
+  .news-card-list__title {
+    font-size: 26px;
+    line-height: 30px;
+    margin-bottom: 24px;
+    text-align: left;
+  }
+  .news-card-list__container {
+    grid-template-columns: repeat(auto-fit, 230px);
+    margin-bottom: 0px;
+    gap: 10px;
+  }
+  .news-card-list__btn-container {
+    max-width: 100%;
+  }
+  .news-card-list__show-more-btn {
+    max-width: 240px;
+    max-height: 56px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .news-card-list {
+    padding: 24px 16px;
+  }
+  .news-card-list__container{
+    grid-template-columns: repeat(auto-fit, 400px);
+  }
+  .news-card-list__title {
+    font-size: 20px;
+    line-height: 24px;
+    margin-top: 0;
+  }
+  .news-card-list__show-more-btn {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}

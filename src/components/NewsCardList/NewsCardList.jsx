@@ -1,3 +1,4 @@
+
 import NewsCard from '../NewsCard/NewsCard';
 import './NewsCardList.css';
 

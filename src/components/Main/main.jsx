@@ -1,6 +1,7 @@
 import "./main.css"
 import { useState } from 'react';
-import NewsCardList from './NewsCardList/NewsCardList';
+import NewsCardList from "../NewsCardList/NewsCardList";
+
 
 function Main() {
   const [newsArticles, setNewsArticles] = useState([]);

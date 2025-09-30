@@ -34,8 +34,8 @@
   padding-left: 104px;
   padding-right: 104px;
   max-width: 100%;
-  margin-top: 190px;
-  margin-bottom: 208px;
+  padding-top: 190px;
+  padding-bottom: 208px;
 }
 
 @keyframes logo-spin {

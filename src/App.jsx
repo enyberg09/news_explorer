@@ -1,14 +1,32 @@
 
 import "./App.css"
 import { BrowserRouter } from 'react-router-dom';
+import { useState } from "react"; 
 import About from './components/About/about.jsx'
 import Main from './components/Main/main.jsx'
 import Footer from './components/Footer/footer.jsx'
 import Header from './components/Header/header.jsx'
-import NewsCard from './components/NewsCard/NewsCard.jsx' 
+import NewsCard from './components/NewsCard/NewsCard.jsx'
+import LoginModal from "./components/LoginModal/LoginModal.jsx";      
+import RegisterModal from "./components/RegisterModal/RegisterModal.jsx";
 
 
 function App() {
+
+  const [isLoginOpen, setIsLoginOpen] =useState(true);
+  const [isRegisterOpen, setIsRegisterOpen] = useState(true);
+
+  function handleLogin(data) {
+    console.log("Logging in:", data);
+    setIsLoginOpen(false);
+  }
+
+  function handleRegister(data) {
+    console.log("Registering:", data);
+    setIsRegisterOpen(false);
+  }
+
+
 const testArticle = [
     {
         publishedAt: "2024-01-15",
@@ -33,7 +51,10 @@ const testArticle = [
   return (
     <BrowserRouter>
     <div>
-      <Header />
+      <Header 
+        onSignInClick={() => setIsLoginOpen(true)}
+        onSignUpClick={() => setIsRegisterOpen(true)}
+      />
       <Main />
       <section className="news-section"> 
       <div className="news-card-container"> 
@@ -44,7 +65,27 @@ const testArticle = [
     </section>
       <About />
       <Footer />
-          </div>
+
+      <LoginModal
+        isOpen={isLoginOpen}
+        onClose={() => setIsLoginOpen(false)}
+        onLogin={handleLogin}
+        switchToRegister={() => {
+          setIsLoginOpen(false);
+          setIsRegisterOpen(true);
+        }}
+        />
+
+      <RegisterModal
+        isOpen={isRegisterOpen}
+        onClose={() => setIsRegisterOpen(false)}
+        onRegister={handleRegister}
+        switchToLogin={() => {
+          setIsRegisterOpen(false);
+          setIsLoginOpen(true);
+        }}
+        />
+        </div>
     </BrowserRouter>
   );
 }

@@ -14,7 +14,7 @@ import RegisterModal from "./components/RegisterModal/RegisterModal.jsx";
 function App() {
 
   const [isLoginOpen, setIsLoginOpen] =useState(true);
-  const [isRegisterOpen, setIsRegisterOpen] = useState(true);
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
   function handleLogin(data) {
     console.log("Logging in:", data);

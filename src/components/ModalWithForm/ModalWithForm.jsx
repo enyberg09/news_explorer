@@ -1,45 +1,77 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import "./ModalWithForm.css";
 
 function ModalWithForm({
-  title,
   isOpen,
   onClose,
-  onSubmit,
-  submitText,
+  title,
+  name,
   children,
-  isDisabled,
+  onSubmit,
+  submitButtonText,
+  alternateTextContent,
+  isSubmitDisabled = false,
+  serverMessage,
 }) {
-  // close on Escape key
   useEffect(() => {
-    function handleEsc(e) {
-      if (e.key === "Escape") onClose();
+    const handleEscape = (evt) => {
+      if (evt.key === "Escape") onClose();
+    };
+
+    if (isOpen) {
+      document.addEventListener("keydown", handleEscape);
     }
-    if (isOpen) document.addEventListener("keydown", handleEsc);
-    return () => document.removeEventListener("keydown", handleEsc);
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+    };
   }, [isOpen, onClose]);
+
+  const handleOverlayClick = (evt) => {
+    if (evt.target.classList.contains("modal__overlay")) {
+      onClose();
+    }
+  };
 
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div
-        className="modal-container"
-        onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
-      >
-        <button className="modal-close" onClick={onClose}>
+    <div
+      className={`modal__overlay ${isOpen ? "modal__overlay_opened" : ""}`}
+      name={name}
+      onClick={handleOverlayClick}
+    >
+      <div className="modalcontainer" onClick={(e) => e.stopPropagation()}>
+        <button
+          type="button"
+          className="modalclose-btn"
+          aria-label="Close"
+          onClick={onClose}
+        >
           ✕
         </button>
-        <h2 className="modal-title">{title}</h2>
-        <form className="modal-form" onSubmit={onSubmit}>
+
+        <h2 className="modal__title">{title}</h2>
+
+        <form className="modal__form" name={name} onSubmit={onSubmit}>
           {children}
-         <button 
-            type="submit" 
-            disabled={isDisabled}
-            className={`modal__submit ${isDisabled ? 'modal__submit_disabled' : ''}`}
+
+          {serverMessage && (
+            <span className="modal__server-message">{serverMessage}</span>
+          )}
+
+          {submitButtonText && (
+            <button
+              type="submit"
+              className="modal__submit-btn"
+              disabled={isSubmitDisabled}
             >
-            {submitText}
-        </button>
+              {submitButtonText}
+            </button>
+          )}
+
+          {alternateTextContent && (
+            <p className="modal__link-option">{alternateTextContent}</p>
+          )}
         </form>
       </div>
     </div>

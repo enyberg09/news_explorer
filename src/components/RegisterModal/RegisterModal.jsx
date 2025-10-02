@@ -21,7 +21,7 @@ function RegisterModal({ isOpen, onClose, onRegister, switchToLogin }) {
     >
       <label>
         Email
-        <input
+        <input className="register__email-input"
           type="email"
           required
           value={email}
@@ -30,7 +30,7 @@ function RegisterModal({ isOpen, onClose, onRegister, switchToLogin }) {
       </label>
       <label>
         Password
-        <input
+        <input className="register__password-input"
           type="password"
           required
           value={password}

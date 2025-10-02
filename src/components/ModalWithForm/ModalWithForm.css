@@ -1,0 +1,257 @@
+.modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center; 
+  align-items: flex-start; 
+  padding-top: 150px;
+  visibility: hidden; 
+  opacity: 0; 
+  transition: visibility 0s, opacity 0.3s ease;
+  z-index: 9999; 
+}
+
+.modal__overlay_opened {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal__container {
+  background-color: #fff;
+  padding: 24px 36px 30px; 
+  border-radius: 16px; 
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  max-width: 430px; 
+  width: 100%;
+  box-sizing: border-box; 
+  overflow: visible; 
+  z-index: 100; 
+  position: relative; 
+}
+
+.modal__close-btn {
+  position: absolute;
+  top: -45px; 
+  right: -55px; 
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  background-image: url("../../assets/images/close_icon.svg"); 
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  z-index: 101; 
+}
+
+.modal__close-btn:hover {
+  opacity: 0.6;
+}
+
+.modal__title {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000;
+  margin-bottom: 25px;
+  margin-top: 0;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__label {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  color: #2f71e5; 
+  margin-top: 8px;
+  margin-bottom: 8px; 
+  display: block; 
+  position: relative; 
+}
+
+.modal__input {
+  width: 100%; 
+  height: 60px; 
+  background-color: transparent; 
+  border: none; 
+  border-bottom: 1px solid #e6e8eb; 
+  border-radius: 0; 
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #1a1b22; 
+  box-sizing: border-box; 
+  outline: none;
+}
+
+.modal__input::placeholder {
+  color: #b6bcbf; 
+}
+
+.modal__input:focus {
+  border-bottom-color: #000000; 
+  border-top-color: transparent; 
+  border-left-color: transparent; 
+  border-right-color: transparent; 
+}
+
+.modal__submit-btn {
+  width: 100%;
+  height: 64px; 
+  background-color: #2f71e5;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  padding-top: 10px;
+  margin-top: 15px;
+  border-radius: 100px; 
+  cursor: pointer;
+
+  transition: background-color 0.3s ease;
+}
+
+.modal__submit-btn:hover {
+  background-color: #347eff;
+}
+
+.modal__submit-btn:disabled {
+  background-color: #e6e8eb; 
+  color: #b6bcbf; 
+  cursor: not-allowed; 
+}
+
+.modal__link-option {
+  font-family: "Inter", sans-serif; 
+  font-size: 14px;
+  line-height: 22px;
+  color: #000; 
+  text-align: center; 
+  padding-left: 0; 
+  margin-top: 14px; 
+  margin-bottom: 0; 
+  cursor: default; 
+}
+
+.modal__link-option .modal__link-text {
+  color: #2f71e5; 
+  cursor: pointer;
+  text-decoration: none; 
+  transition: opacity 0.3s ease, text-decoration 0.3s ease;
+  margin-left: 5px; 
+  font-size: 18px; 
+}
+
+.modal__link-option .modal__link-text:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+.modal__error-message {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000; 
+  margin-top: -15px; 
+  margin-bottom: 10px; 
+  text-align: left;
+  min-height: 15px; 
+  visibility: hidden; 
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  position: absolute;
+}
+
+.modal__error-message_visible {
+  visibility: visible;
+  opacity: 1;
+  top: 90px;
+  right: 70px;
+  left: 0;
+}
+
+.modal__server-message {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000; 
+  text-align: center; 
+  margin-top: 5px; 
+  margin-bottom: 5px; 
+  min-height: 15px; 
+  display: block; 
+  opacity: 1; 
+}
+
+
+@media screen and (max-width: 768px) {
+  .modal__container {
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  
+  .modal__header {
+    font-size: 20px;
+  }
+
+  .modal__form {
+    padding: 0 16px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .modal {
+    padding-top: 40px;
+  }
+
+  .modal__container {
+    width: 100%;
+    height: 100%; 
+    border-radius: 10px;
+    padding: 16px;
+    top: 20px;
+    position: relative;
+  }
+
+  .modal__close-btn {
+    right: 8px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .modal__title {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .modal__submit-btn {
+    height: 60px;
+  }
+
+  .modal__label {
+    font-size: 10px; 
+  }
+
+  .modal__input {
+    height: 48px; 
+    padding: 0 10px;
+  }
+
+  .modal__link-option {
+    font-size: 12px; 
+  }
+}

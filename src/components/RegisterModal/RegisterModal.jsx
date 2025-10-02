@@ -17,40 +17,40 @@ function RegisterModal({ isOpen, onClose, onRegister, switchToLogin }) {
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
-      submitText="Sign Up"
+      submitButtonText="Sign Up"
     >
-      <label>
+      <label className="modal__label">
         Email
-        <input className="register__email-input"
+        <input className="modal__input"
           type="email"
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
       </label>
-      <label>
+      <label className="modal__label">
         Password
-        <input className="register__password-input"
+        <input className="modal__input" 
           type="password"
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
       </label>
-      <label>
+      <label className="modal__label">
         Name
-        <input
+        <input className="modal__input"
           type="text"
           required
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
       </label>
-      <p className="modal-footer">
+      <p className="modal__link-option">
         or{" "}
-        <button type="button" onClick={switchToLogin}>
-          Sign In
-        </button>
+        <span className="modal__link-text" onClick={switchToLogin}>
+            Sign In
+        </span>
       </p>
     </ModalWithForm>
   );

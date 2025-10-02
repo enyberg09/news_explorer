@@ -13,6 +13,7 @@ function ModalWithForm({
   isSubmitDisabled = false,
   serverMessage,
 }) {
+  // Close modal on ESC
   useEffect(() => {
     const handleEscape = (evt) => {
       if (evt.key === "Escape") onClose();
@@ -26,6 +27,7 @@ function ModalWithForm({
     };
   }, [isOpen, onClose]);
 
+  // Close modal if clicking outside
   const handleOverlayClick = (evt) => {
     if (evt.target.classList.contains("modal__overlay")) {
       onClose();
@@ -37,28 +39,30 @@ function ModalWithForm({
   return (
     <div
       className={`modal__overlay ${isOpen ? "modal__overlay_opened" : ""}`}
-      name={name}
       onClick={handleOverlayClick}
     >
-      <div className="modalcontainer" onClick={(e) => e.stopPropagation()}>
+      <div className="modal__container" onClick={(e) => e.stopPropagation()}>
+        {/* Close button */}
         <button
           type="button"
-          className="modalclose-btn"
+          className="modal__close-btn"
           aria-label="Close"
           onClick={onClose}
-        >
-          ✕
-        </button>
+        />
 
+        {/* Title */}
         <h2 className="modal__title">{title}</h2>
 
+        {/* Form */}
         <form className="modal__form" name={name} onSubmit={onSubmit}>
           {children}
 
+          {/* Server message */}
           {serverMessage && (
             <span className="modal__server-message">{serverMessage}</span>
           )}
 
+          {/* Submit button */}
           {submitButtonText && (
             <button
               type="submit"
@@ -69,6 +73,7 @@ function ModalWithForm({
             </button>
           )}
 
+          {/* Alternate text */}
           {alternateTextContent && (
             <p className="modal__link-option">{alternateTextContent}</p>
           )}

@@ -4,12 +4,11 @@ import { useState } from "react";
 function LoginModal({ isOpen, onClose, onLogin, switchToRegister }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(""); // Add this new state
+  const [error, setError] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    
-    // Client-side validation
+
     if (!email.includes("@")) {
       setError("Please enter a valid email.");
       return;
@@ -18,8 +17,8 @@ function LoginModal({ isOpen, onClose, onLogin, switchToRegister }) {
       setError("Password must be at least 6 characters.");
       return;
     }
-    
-    setError(""); // Clear any previous errors
+
+    setError(""); 
     onLogin({ email, password });
   }
 
@@ -29,38 +28,44 @@ function LoginModal({ isOpen, onClose, onLogin, switchToRegister }) {
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
-      submitText="Sign In"
-      // Pass the disabled state to ModalWithForm
-      isDisabled={!(email && password)}
+      submitButtonText="Sign In"
+      isSubmitDisabled={!(email && password)}
+      alternateTextContent={
+        <>
+          or{" "}
+          <span className="modal__link-text" onClick={switchToRegister}>
+            Sign up
+          </span>
+        </>
+      }
     >
-      <label>
+      <label className="modal__label">
         Email
         <input
+          className="modal__input"
           type="email"
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
       </label>
-      <label>
+
+      <label className="modal__label">
         Password
         <input
+          className="modal__input"
           type="password"
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
       </label>
-      
-      {/* Display error message */}
-      {error && <p className="login-modal__error">{error}</p>}
-      
-      <p className="modal-footer">
-        or{" "}
-        <button type="button" onClick={switchToRegister}>
-          Sign Up
-        </button>
-      </p>
+
+      {error && (
+        <p className="modal__error-message modal__error-message_visible">
+          {error}
+        </p>
+      )}
     </ModalWithForm>
   );
 }

@@ -1,27 +1,33 @@
 import "./main.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import Preloader from "../Preloader/Preloader";
 
-function Main() {
-  const [newsArticles, setNewsArticles] = useState([]);
+function Main({ articles }) {
+  const [newsArticles, setNewsArticles] = useState(articles || []);
   const [savedArticles, setSavedArticles] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // Update articles if prop changes (e.g., from App.jsx)
+  useEffect(() => {
+    if (articles) {
+      setNewsArticles(articles);
+    }
+  }, [articles]);
+
   // handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!searchTerm.trim()) return;
 
-    if (!searchTerm.trim()) return; // prevent empty searches
+    setLoading(true);
 
-    setLoading(true); // show preloader
-
-    // simulate API call
+    // Simulate API call (replace this with real API call later)
     setTimeout(() => {
-      const testArticles = [
+      const simulatedResults = [
         {
-          id: 1,
+          id: Date.now(),
           title: `Result for "${searchTerm}"`,
           description: "This is just a test article.",
           image: "https://via.placeholder.com/400x200",
@@ -29,8 +35,8 @@ function Main() {
           publishedAt: "2024-01-01",
         },
       ];
-      setNewsArticles(testArticles);
-      setLoading(false); // hide preloader
+      setNewsArticles(simulatedResults);
+      setLoading(false);
     }, 1500);
   };
 

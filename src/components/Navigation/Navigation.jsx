@@ -25,7 +25,7 @@ function Navigation({
       return (
         <button
           type="button"
-          className={`navigation__btn_user_${isMobile ? "mobile" : "desktop"} navigation__btn_user_${theme}`}
+          className={`navigation__btn_user_${isMobile ? "mobile" : "desktop"} navigation__btn_user_theme_${theme}`}
           onClick={onLogout}
         >
           {currentUser?.name || "User"} (Logout)
@@ -35,7 +35,7 @@ function Navigation({
       return (
         <button
           type="button"
-          className={`navigation__btn_signin_${isMobile ? "mobile" : "desktop"} navigation__btn_signin_${theme}`}
+          className={`navigation__signin-button_${isMobile ? "mobile" : "desktop"} navigation__signin-button_theme_${theme}`}
           onClick={onSignInClick}
         >
           Sign in

@@ -1,0 +1,18 @@
+/* SavedNews.css */
+.saved-news {
+  background-color: #fff;
+  padding: 32px 16px;
+  min-height: 100vh;
+}
+
+.saved-news__no-articles {
+  text-align: center;
+  margin-top: 64px;
+}
+
+.saved-news__no-articles-title {
+  font-family: 'Roboto Slab', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #1a1b22;
+}

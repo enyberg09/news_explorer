@@ -1,57 +1,61 @@
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { useState } from "react";
+import React from "react";
+import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
+import useFormValidation from "../Hooks/useFormValidation.jsx";
 
-function RegisterModal({ isOpen, onClose, onRegister, switchToLogin }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+function RegisterModal({ isOpen, onClose, onRegister }) {
 
-  function handleSubmit(e) {
+  const { values, errors, handleChange, isValid } = useFormValidation();
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    onRegister({ email, password, name });
-  }
+    if (isValid) {
+      onRegister(values);
+    }
+  };
 
   return (
     <ModalWithForm
-      title="Sign Up"
+      title="Register"
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
-      submitButtonText="Sign Up"
+      isValid={isValid}
     >
-      <label className="modal__label">
-        Email
-        <input className="modal__input"
-          type="email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </label>
-      <label className="modal__label">
-        Password
-        <input className="modal__input" 
-          type="password"
-          required
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </label>
-      <label className="modal__label">
+      <label>
         Name
-        <input className="modal__input"
+        <input
           type="text"
+          name="name"
+          value={values.name}
+          onChange={handleChange}
           required
-          value={name}
-          onChange={(e) => setName(e.target.value)}
         />
+        {values.name && errors.name && <span>{errors.name}</span>}
       </label>
-      <p className="modal__link-option">
-        or{" "}
-        <span className="modal__link-text" onClick={switchToLogin}>
-            Sign In
-        </span>
-      </p>
+
+      <label>
+        Email
+        <input
+          type="email"
+          name="email"
+          value={values.email}
+          onChange={handleChange}
+          required
+        />
+        {values.email && errors.email && <span>{errors.email}</span>}
+      </label>
+
+      <label>
+        Password
+        <input
+          type="password"
+          name="password"
+          value={values.password}
+          onChange={handleChange}
+          required
+        />
+        {values.password && errors.password && <span>{errors.password}</span>}
+      </label>
     </ModalWithForm>
   );
 }

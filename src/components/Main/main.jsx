@@ -50,13 +50,8 @@ function Main({ articles }) {
   };
 
   return (
-    <main className="main">
-      <img
-        src="../../src/images/main-page-pic.svg"
-        alt="Main page pic"
-        className="main__image"
-      />
-
+  <main className="main">
+    <div className="main__hero">
       <div className="main__content">
         <h1 className="main__title">What's going on in the world?</h1>
         <p className="main__subtitle">
@@ -76,23 +71,24 @@ function Main({ articles }) {
           </button>
         </form>
       </div>
+    </div>
 
-      {/* NEWS SECTION: preloader or cards */}
-      <section className="news-section">
-        {loading ? (
-          <div className="news-section__preloader">
-            <Preloader />
-            <p className="news-section__preloader-text">Searching for news...</p>
-          </div>
-        ) : (
-          <NewsCardList
-            newsArticles={newsArticles}
-            onSaveArticle={handleSaveArticle}
-          />
-        )}
-      </section>
-    </main>
-  );
+    {/* NEWS SECTION: preloader or cards */}
+    <section className="news-section">
+      {loading ? (
+        <div className="news-section__preloader">
+          <Preloader />
+          <p className="news-section__preloader-text">Searching for news...</p>
+        </div>
+      ) : (
+        <NewsCardList
+          newsArticles={newsArticles}
+          onSaveArticle={handleSaveArticle}
+        />
+      )}
+    </section>
+  </main>
+);
 }
 
 export default Main;

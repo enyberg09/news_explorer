@@ -1,9 +1,12 @@
 import React from "react";
-import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
-import useFormValidation from "../Hooks/useFormValidation";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import useFormValidation from "../Hooks/useFormValidation.jsx";
 
-function LoginModal({ isOpen, onClose, onLogin }) {
-  const { values, errors, handleChange, isValid } = useFormValidation();
+function LoginModal({ isOpen, onClose, onLogin, switchToRegister }) {
+  const { values, errors, handleChange, isValid } = useFormValidation(
+    {}, 
+    ["email", "password"]
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,34 +17,49 @@ function LoginModal({ isOpen, onClose, onLogin }) {
 
   return (
     <ModalWithForm
-      title="Login"
+      title="Sign In"
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
-      isValid={isValid}
+      submitButtonText="Sign In"
+      isSubmitDisabled={!isValid}
+      alternateTextContent={
+        <>
+          or{" "}
+          <span className="modal__link-text" onClick={switchToRegister}>
+            Sign Up
+          </span>
+        </>
+      }
     >
-      <label>
+      <label className="modal__label">
         Email
         <input
+          className="modal__input"
           type="email"
           name="email"
-          value={values.email}      
-          onChange={handleChange}    
           required
+          value={values.email || ""}
+          onChange={handleChange}
         />
-        {values.email && errors.email && <span>{errors.email}</span>} 
+        {errors.email && (
+          <span className="modal__error-message">{errors.email}</span>
+        )}
       </label>
 
-      <label>
+      <label className="modal__label">
         Password
         <input
+          className="modal__input"
           type="password"
           name="password"
-          value={values.password}
-          onChange={handleChange}
           required
+          value={values.password || ""}
+          onChange={handleChange}
         />
-        {values.password && errors.password && <span>{errors.password}</span>}
+        {errors.password && (
+          <span className="modal__error-message">{errors.password}</span>
+        )}
       </label>
     </ModalWithForm>
   );

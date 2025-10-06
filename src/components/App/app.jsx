@@ -29,17 +29,27 @@ function App() {
     setUser(currentUser);
   }, [currentUser]);
 
-  function handleLogin(data) {
-    console.log("Logging in:", data);
-    setCurrentUser({ name: data.username || "User" });
-    setIsLoginOpen(false);
-  }
+function handleLogin(data) {
+  console.log("Logging in:", data);
 
-  function handleRegister(data) {
-    console.log("Registering:", data);
-    setCurrentUser({ name: data.username || "User" });
-    setIsRegisterOpen(false);
-  }
+ 
+  setCurrentUser({ name: data.email.split("@")[0] || "User" });
+
+  setIsLoginOpen(false);
+}
+
+function handleRegister(data) {
+  console.log("Registering:", data);
+
+
+  setCurrentUser({ name: data.email.split("@")[0] || "User" });
+
+  setIsRegisterOpen(false);
+}
+
+function handleLogout() {
+setCurrentUser(null);
+}
 
   function handleSaveArticle(article) {
     saveArticle(article);
@@ -72,18 +82,23 @@ function App() {
 
 return (
   <BrowserRouter>
-    <Header
+   <Header
+      currentUser={currentUser}
+      isLoggedIn={!!currentUser}
       onSignInClick={() => setIsLoginOpen(true)}
       onSignUpClick={() => setIsRegisterOpen(true)}
-    />
-
+      onLogout={handleLogout}
+  />
     <Routes>
       {/* Home route */}
       <Route
         path="/"
         element={
           <>
-            <Main articles={testArticle} />
+            <Main 
+            articles={testArticle}
+            isLoggedIn={!!currentUser}
+            />
             <About />
             <Footer />
           </>

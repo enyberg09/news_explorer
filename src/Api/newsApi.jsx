@@ -14,8 +14,8 @@ export const searchNews = async (query) => {
     const fromDate = new Date();
     fromDate.setDate(fromDate.getDate() - 7);
     
-    const month = String(fromtDate.getMonth() + 1).padStart(2, "0");
-    const day = String(fromtDate.getDate()).padStart(2, "0");
+    const month = String(fromDate.getMonth() + 1).padStart(2, "0");
+    const day = String(fromDate.getDate()).padStart(2, "0");
     const year = fromDate.getFullYear();
     const from = `${month}-${day}-${year}`;
 

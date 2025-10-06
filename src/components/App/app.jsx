@@ -31,19 +31,13 @@ function App() {
 
 function handleLogin(data) {
   console.log("Logging in:", data);
-
- 
-  setCurrentUser({ name: data.email.split("@")[0] || "User" });
-
+  setCurrentUser({ name: data.name || "User" });
   setIsLoginOpen(false);
 }
 
 function handleRegister(data) {
   console.log("Registering:", data);
-
-
-  setCurrentUser({ name: data.email.split("@")[0] || "User" });
-
+  setCurrentUser({ name: data.name || "User" });
   setIsRegisterOpen(false);
 }
 

@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navigation.css";
+import logoutBlack from "../../images/logout-btn-black.svg";
+import logoutWhite from "../../images/logout-btn-white.svg";
 
 function Navigation({
   isLoggedIn,
@@ -21,28 +23,35 @@ function Navigation({
   };
 
   const renderAuthButton = () => {
-    if (isLoggedIn) {
-      return (
-        <button
-          type="button"
-          className={`navigation__btn_user_${isMobile ? "mobile" : "desktop"} navigation__btn_user_theme_${theme}`}
-          onClick={onLogout}
-        >
-          {currentUser?.name || "User"} (Logout)
-        </button>
-      );
-    } else {
-      return (
-        <button
-          type="button"
-          className={`navigation__signin-button_${isMobile ? "mobile" : "desktop"} navigation__signin-button_theme_${theme}`}
-          onClick={onSignInClick}
-        >
-          Sign in
-        </button>
-      );
-    }
-  };
+  if (isLoggedIn) {
+    const logoutIcon = theme === "light" ? logoutBlack : logoutWhite;
+    
+    return (
+      <button
+        type="button"
+        className={`navigation__btn_user_${isMobile ? "mobile" : "desktop"} navigation__btn_user_theme_${theme}`}
+        onClick={onLogout}
+      >
+        {currentUser?.name || "User"}
+        <img 
+          src={logoutIcon} 
+          alt="logout" 
+          className="navigation__logout-icon" 
+        />
+      </button>
+    );
+  } else {
+    return (
+      <button
+        type="button"
+        className={`navigation__signin-button_${isMobile ? "mobile" : "desktop"} navigation__signin-button_theme_${theme}`}
+        onClick={onSignInClick}
+      >
+        Sign in
+      </button>
+    );
+  }
+};
 
   return (
     <ul className={`navigation__menu navigation__menu_type_${isMobile ? "mobile" : "desktop"}`}>

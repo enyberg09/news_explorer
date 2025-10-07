@@ -60,6 +60,11 @@
   border: 1px solid #fff;
 }
 
+.navigation__logout-icon {
+  margin-left: 8px;
+  width: 16px;
+  height: 16px;
+}
 
 @media screen and (max-width: 768px) {
   .navigation__menu_type_mobile {

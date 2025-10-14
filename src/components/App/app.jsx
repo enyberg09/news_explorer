@@ -55,9 +55,20 @@ function handleLogout() {
 setCurrentUser(null);
 }
 
-function handleSaveArticle(article) {
-  saveArticle(article);
+function handleSaveArticle(article, isSaved) {
+  console.log("handleSaveArticle called with:", { article: article.title, isSaved });
+  
+  if (isSaved) {
+    console.log("Saving article");
+    saveArticle(article)
+  } else {
+    console.log("Removing article");
+    const updated = getSavedArticles().filter(a => a.title !== article.title);
+    localStorage.setItem("savedArticles", JSON.stringify(updated));
+  }
+
   setSavedArticles(getSavedArticles());
+  console.log("Updated saved articles:", getSavedArticles());
 }
 
 async function handleSearch(query) {
@@ -66,7 +77,6 @@ async function handleSearch(query) {
   setHasSearched(true);
   setSearchQuery(query);
   
-  // Add a small delay to see the preloader
   await new Promise(resolve => setTimeout(resolve, 1000));
   
   try {

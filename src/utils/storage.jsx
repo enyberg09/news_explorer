@@ -15,11 +15,11 @@ export function getSavedArticles() {
 export function saveArticle(article) {
     const current = getSavedArticles();
     const updated = [...current, article];
-    localStorage.setItem("savedArticles", JSON.stringify(updated));
+    localStorage.setItem("SavedArticles", JSON.stringify(updated));
 }
 
 export function removeArticle(url) {
     const current = getSavedArticles();
     const updated = current.filter(article => article.url !== url);
-    localStorage.setItem("savedArticles", JSON.stringify(updated));
+    localStorage.setItem("SavedArticles", JSON.stringify(updated));
 }

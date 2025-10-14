@@ -67,7 +67,7 @@ padding-left: 24px;
 outline: none;
 }
 
-.main__search-button {
+.main__search-btn {
 font-family: 'Roboto', Arial, sans-serif;
 font-weight: 500;
 font-size: 18px;
@@ -84,6 +84,6 @@ background-color: #2F71E5;
 color: #FFF;
 }
 
-.main__search-button:hover {
+.main__search-btn:hover {
   
 }

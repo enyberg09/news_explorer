@@ -35,6 +35,6 @@ export const searchNews = async (query) => {
     return data.articles || [];
   } catch (error) {
     console.error("News API fetch error:", error);
-    return[];
+    return [];
   }
 };

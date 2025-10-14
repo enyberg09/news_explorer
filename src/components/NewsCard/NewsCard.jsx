@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./NewsCard.css";
+import { searchNews } from "../../Api/newsApi";
 
 function NewsCard({ article, onSave }) {
     const [saved, setSaved] = useState(false);
@@ -19,15 +20,7 @@ function NewsCard({ article, onSave }) {
     return (
             <article className="news-card">
             <div className="news-card__media">
-           {/* ===== TEMPORARY CODE FOR CSS TESTING ===== */}
-    <img
-        src="https://picsum.photos/400/272"
-        alt="placeholder"
-        className="news-card__image"
-        loading="lazy"
-    />
 
-    {/* ===== REAL CODE (COMMENTED OUT FOR NOW) =====
     {article.urlToImage ? (
         <img
             src={article.urlToImage}
@@ -41,7 +34,6 @@ function NewsCard({ article, onSave }) {
     ) : (
         <div className="news-card__placeholder">No image</div>
     )}
-    */}
 
             <button
                 type="button"

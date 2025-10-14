@@ -21,6 +21,8 @@ import {
   saveArticle,
 } from "../../utils/storage.jsx";
 
+import { searchNews } from "../../Api/newsApi.jsx";
+
 function App() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
@@ -32,31 +34,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-
-   const testArticle = [
-    {
-      id: 1,
-      publishedAt: "2024-01-15",
-      title: "Breaking: Major Tech Breakthrough",
-      description: "Scientists discover revolutionary new technology",
-      source: { name: "Tech News" },
-    },
-    {
-      id: 2,
-      publishedAt: "2024-01-14",
-      title: "Climate Change Update",
-      description: "New research shows promising environmental trends",
-      source: { name: "Environmental Times" },
-    },
-    {
-      id: 3,
-      publishedAt: "2024-01-13",
-      title: "Sports Championship Results",
-      description: "Local team wins major tournament in exciting finale",
-      source: { name: "Sports Daily" },
-    },
-  ];
-
 
   useEffect(() => {
     setUser(currentUser);
@@ -83,15 +60,26 @@ function handleSaveArticle(article) {
   setSavedArticles(getSavedArticles());
 }
 
-function handleSearch(query) {
+async function handleSearch(query) {
+  console.log("Search started - isLoading:", true);
   setIsLoading(true);
   setHasSearched(true);
   setSearchQuery(query);
   
-  setTimeout(() => {
-    setArticles(testArticle);
+  // Add a small delay to see the preloader
+  await new Promise(resolve => setTimeout(resolve, 1000));
+  
+  try {
+    const fetchedArticles = await searchNews(query);
+    console.log("Got articles:", fetchedArticles.length);
+    setArticles(fetchedArticles);
+  } catch (error) {
+    console.error("Search failed:", error);
+    setArticles([]);
+  } finally {
+    console.log("Search finished - isLoading:", false);
     setIsLoading(false);
-  }, 5000); 
+  }
 }
 
 return (

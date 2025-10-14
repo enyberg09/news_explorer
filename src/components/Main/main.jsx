@@ -1,52 +1,15 @@
 import "./main.css";
-import { useState, useEffect } from "react";
-import NewsCardList from "../NewsCardList/NewsCardList";
-import Preloader from "../Preloader/Preloader";
+import { useState } from "react";
 
-function Main({ articles }) {
-  const [newsArticles, setNewsArticles] = useState(articles || []);
-  const [savedArticles, setSavedArticles] = useState([]);
+function Main({ onSearch }) {
   const [searchTerm, setSearchTerm] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  // Update articles if prop changes (e.g., from App.jsx)
-  useEffect(() => {
-    if (articles) {
-      setNewsArticles(articles);
-    }
-  }, [articles]);
 
   // handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!searchTerm.trim()) return;
 
-    setLoading(true);
-
-    // Simulate API call (replace this with real API call later)
-    setTimeout(() => {
-      const simulatedResults = [
-        {
-          id: Date.now(),
-          title: `Result for "${searchTerm}"`,
-          description: "This is just a test article.",
-          image: "https://via.placeholder.com/400x200",
-          source: "Test Source",
-          publishedAt: "2024-01-01",
-        },
-      ];
-      setNewsArticles(simulatedResults);
-      setLoading(false);
-    }, 1500);
-  };
-
-  // handle save/unsave from child cards
-  const handleSaveArticle = (article, isSaved) => {
-    if (isSaved) {
-      setSavedArticles((prev) => [...prev, article]);
-    } else {
-      setSavedArticles((prev) => prev.filter((a) => a.id !== article.id));
-    }
+    onSearch(searchTerm);
   };
 
   return (
@@ -72,21 +35,6 @@ function Main({ articles }) {
         </form>
       </div>
     </div>
-
-    {/* NEWS SECTION: preloader or cards */}
-    <section className="news-section">
-      {loading ? (
-        <div className="news-section__preloader">
-          <Preloader />
-          <p className="news-section__preloader-text">Searching for news...</p>
-        </div>
-      ) : (
-        <NewsCardList
-          newsArticles={newsArticles}
-          onSaveArticle={handleSaveArticle}
-        />
-      )}
-    </section>
   </main>
 );
 }

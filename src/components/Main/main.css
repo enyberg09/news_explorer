@@ -6,8 +6,8 @@ padding: 0;
 }
 
 .main__content {
-position: absolute;
-top: calc(50% + 80px);
+position: relative;
+top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
 max-width: 90%;
@@ -71,14 +71,12 @@ padding-left: 24px;
 font-family: 'Roboto', Arial, sans-serif;
 font-weight: 500;
 font-size: 18px;
-leading-trim: NONE;
 line-height: 24px;
 letter-spacing: 0px;
 text-align: center;
 vertical-align: middle;
 width: 168px;
 height: 64px;
-angle: 0 deg;
 opacity: 1;
 border-radius: 100px;
 border: none;
@@ -89,8 +87,3 @@ color: #FFF;
 .main__search-button:hover {
   
 }
-
-.news-section {
-  background-color: #F5F6F7;
-}
-

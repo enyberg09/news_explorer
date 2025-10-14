@@ -37,6 +37,26 @@
   padding-top: 190px;
   padding-bottom: 208px;
 }
+.search-results__loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 282px;
+  background-color: #F5F6F7;
+  margin-bottom: 80px;
+}
+
+.search-results__text {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: #6C707A;
+  margin-top: 24px;
+}
 
 @keyframes logo-spin {
   from {

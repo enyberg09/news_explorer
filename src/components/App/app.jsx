@@ -11,6 +11,9 @@ import LoginModal from "../LoginModal/LoginModal.jsx";
 import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 import SavedNews from "../SavedNews/SavedNews.jsx";
 
+import Preloader from "../Preloader/Preloader.jsx";
+import NewsCardList from "../NewsCardList/NewsCardList.jsx";
+
 import {
   getUser,
   setUser,
@@ -25,32 +28,12 @@ function App() {
   const [currentUser, setCurrentUser] = useState(getUser());
   const [savedArticles, setSavedArticles] = useState(getSavedArticles());
 
-  useEffect(() => {
-    setUser(currentUser);
-  }, [currentUser]);
+  const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasSearched, setHasSearched] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
-function handleLogin(data) {
-  console.log("Logging in:", data);
-  setCurrentUser({ name: data.name || "User" });
-  setIsLoginOpen(false);
-}
-
-function handleRegister(data) {
-  console.log("Registering:", data);
-  setCurrentUser({ name: data.name || "User" });
-  setIsRegisterOpen(false);
-}
-
-function handleLogout() {
-setCurrentUser(null);
-}
-
-  function handleSaveArticle(article) {
-    saveArticle(article);
-    setSavedArticles(getSavedArticles());
-  }
-
-  const testArticle = [
+   const testArticle = [
     {
       id: 1,
       publishedAt: "2024-01-15",
@@ -74,6 +57,43 @@ setCurrentUser(null);
     },
   ];
 
+
+  useEffect(() => {
+    setUser(currentUser);
+  }, [currentUser]);
+
+function handleLogin(data) {
+  console.log("Logging in:", data);
+  setCurrentUser({ name: data.name || "User" });
+  setIsLoginOpen(false);
+}
+
+function handleRegister(data) {
+  console.log("Registering:", data);
+  setCurrentUser({ name: data.name || "User" });
+  setIsRegisterOpen(false);
+}
+
+function handleLogout() {
+setCurrentUser(null);
+}
+
+function handleSaveArticle(article) {
+  saveArticle(article);
+  setSavedArticles(getSavedArticles());
+}
+
+function handleSearch(query) {
+  setIsLoading(true);
+  setHasSearched(true);
+  setSearchQuery(query);
+  
+  setTimeout(() => {
+    setArticles(testArticle);
+    setIsLoading(false);
+  }, 5000); 
+}
+
 return (
   <BrowserRouter>
    <Header
@@ -90,9 +110,27 @@ return (
         element={
           <>
             <Main 
-            articles={testArticle}
+            onSearch={handleSearch}
             isLoggedIn={!!currentUser}
             />
+            {hasSearched && (
+                <section className="search-results">
+                  {isLoading ? (
+                    <div className="search-results__loading">
+                      <Preloader />
+                      <p className="search-results__text">
+                        Searching for news...
+                      </p>
+                    </div>
+                  ) : (
+                    <NewsCardList
+                      articles={articles}
+                      onSaveArticle={handleSaveArticle}
+                      isLoggedIn={!!currentUser}
+                    />
+                  )}
+                </section>
+              )}
             <About />
             <Footer />
           </>

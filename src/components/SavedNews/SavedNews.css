@@ -1,8 +1,11 @@
-/* SavedNews.css */
 .saved-news {
   background-color: #fff;
   padding: 32px 16px;
   min-height: 100vh;
+}
+
+.saved-news .news-card-list {
+  padding: 62px 102px;
 }
 
 .saved-news__no-articles {

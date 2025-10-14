@@ -5,9 +5,9 @@
 }
 
 .header {
-  position: absolute; /* Change from relative to absolute */
-  top: 0; /* Add this */
-  left: 0; /* Add this */
+  position: absolute;
+  top: 0; 
+  left: 0; 
   right: 0;
   z-index: 10;
   display: flex;
@@ -85,6 +85,7 @@
 
 .header_theme_dark .header__menu-icon-line {
   background-color: #fff;
+  color: #000;
 }
 
 .header_theme_light .header__menu-icon-line {
@@ -113,7 +114,10 @@
   opacity: 1;
 }
 
-/* Navigation links inside Navigation component */
+.header_theme_light .header__logo {
+    color: black;
+}
+
 .navigation__menu {
   display: flex;
   gap: 24px;

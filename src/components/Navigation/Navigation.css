@@ -43,8 +43,15 @@
 
 .navigation__btn_user_theme_light,
 .navigation__signin-button_theme_light {
-  background-color: #f0f0f0;
+  background-color: transparent;
   color: #1a1b22;
+   width: 176px;
+  height: 48px;
+  top: 19px;
+  left: 1160px;
+  border-width: 1px;
+  border-radius: 100px;
+  border: 1px solid #000;
 }
 
 .navigation__btn_user_theme_dark,

@@ -4,6 +4,7 @@ import { searchNews } from "../../Api/newsApi";
 
 function NewsCard({ article, onSave }) {
     const [saved, setSaved] = useState(false);
+    const [imageError, setImageError] = useState(false);
     
     const formattedDate = new Date(article.publishedAt).toLocaleDateString("en-US", {
         month: "long",
@@ -18,21 +19,19 @@ function NewsCard({ article, onSave }) {
     }
 
     return (
-            <article className="news-card">
-            <div className="news-card__media">
+        <article className="news-card">
+        <div className="news-card__media">
 
-    {article.urlToImage ? (
+       {article.urlToImage && !imageError ? (
         <img
             src={article.urlToImage}
             alt={article.title}
             className="news-card__image"
             loading="lazy"
-            onError={(e) => {
-                e.currentTarget.style.display = "none";
-            }}
+            onError={() => setImageError(true)}
         />
     ) : (
-        <div className="news-card__placeholder">No image</div>
+        <div className="news-card__placeholder">No image available</div>
     )}
 
             <button

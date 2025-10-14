@@ -2,6 +2,10 @@ import React from "react";
 import "./SavedNewsHeader.css"
 
 function SavedNewsHeader({ articlesCount, currentUser, keywords}) {
+    console.log("articlesCount:", articlesCount);
+    console.log("currentUser:", currentUser);
+    console.log("keywords:", keywords);
+
     const userName = currentUser?.name || "User";
 
     const getKeywordsText = () => {

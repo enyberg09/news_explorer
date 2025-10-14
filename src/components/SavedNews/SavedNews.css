@@ -1,11 +1,15 @@
 .saved-news {
   background-color: #fff;
-  padding: 32px 16px;
-  min-height: 100vh;
+  padding: 0;
 }
 
 .saved-news .news-card-list {
   padding: 62px 102px;
+  background-color: #f5f6f7;
+}
+
+.saved-news .news-card-list__container {
+  margin: auto;
 }
 
 .saved-news__no-articles {

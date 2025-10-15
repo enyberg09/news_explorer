@@ -5,7 +5,7 @@ import useFormValidation from "../Hooks/useFormValidation.jsx";
 function LoginModal({ isOpen, onClose, onLogin, switchToRegister }) {
   const { values, errors, handleChange, isValid } = useFormValidation(
     {}, 
-    ["email", "password", "name" ]
+    ["email", "password"]
   );
 
   const handleSubmit = (e) => {
@@ -59,21 +59,6 @@ function LoginModal({ isOpen, onClose, onLogin, switchToRegister }) {
         />
         {errors.password && (
           <span className="modal__error-message">{errors.password}</span>
-        )}
-      </label>
-
-       <label className="modal__label">
-        Name
-        <input
-          className="modal__input"
-          type="text"
-          name="name"
-          required
-          value={values.name || ""}
-          onChange={handleChange}
-        />
-        {errors.name && (
-          <span className="modal__error-message">{errors.name}</span>
         )}
       </label>
     </ModalWithForm>

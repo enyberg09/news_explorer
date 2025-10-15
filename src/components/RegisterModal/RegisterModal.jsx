@@ -43,7 +43,7 @@ function RegisterModal({ isOpen, onClose, onRegister, switchToLogin }) {
           onChange={handleChange}
         />
         {errors.email && (
-          <span className="modal__error-message">{errors.email}</span>
+          <span className="modal__error-message modal__error-message_visible">{errors.email}</span>
         )}
       </label>
 
@@ -58,7 +58,7 @@ function RegisterModal({ isOpen, onClose, onRegister, switchToLogin }) {
           onChange={handleChange}
         />
         {errors.password && (
-          <span className="modal__error-message">{errors.password}</span>
+          <span className="modal__error-message modal__error-message_visible">{errors.password}</span>
         )}
       </label>
 
@@ -73,7 +73,7 @@ function RegisterModal({ isOpen, onClose, onRegister, switchToLogin }) {
           onChange={handleChange}
         />
         {errors.name && (
-          <span className="modal__error-message">{errors.name}</span>
+          <span className="modal__error-message modal__error-message_visible">{errors.name}</span>
         )}
       </label>
     </ModalWithForm>

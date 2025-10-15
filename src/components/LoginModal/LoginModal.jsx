@@ -43,7 +43,7 @@ function LoginModal({ isOpen, onClose, onLogin, switchToRegister }) {
           onChange={handleChange}
         />
         {errors.email && (
-          <span className="modal__error-message">{errors.email}</span>
+          <span className="modal__error-message modal__error-message_visible">{errors.email}</span>
         )}
       </label>
 
@@ -58,7 +58,7 @@ function LoginModal({ isOpen, onClose, onLogin, switchToRegister }) {
           onChange={handleChange}
         />
         {errors.password && (
-          <span className="modal__error-message">{errors.password}</span>
+          <span className="modal__error-message modal__error-message_visible">{errors.password}</span>
         )}
       </label>
     </ModalWithForm>

@@ -17,7 +17,7 @@ export const searchNews = async (query) => {
     const month = String(fromDate.getMonth() + 1).padStart(2, "0");
     const day = String(fromDate.getDate()).padStart(2, "0");
     const year = fromDate.getFullYear();
-    const from = `${month}-${day}-${year}`;
+    const from = `${year}-${month}-${day}`;
 
     const url = `${NEWS_API_BASE_URL}?q=${encodeURIComponent(
     query
@@ -25,14 +25,24 @@ export const searchNews = async (query) => {
 
   try {
     const response = await fetch(url);
-
+    console.log("Search URL:", url);
     if (!response.ok) {
         console.error("News API HTTP error:", response.status);
         return [];
     }
 
     const data = await response.json();
-    return data.articles || [];
+    console.log("API Response:", data);
+    console.log("Number of articles:", data.articles?.length);
+    
+    const filteredArticles = (data.articles || []).filter(
+      (article) =>
+        article.title?.toLowerCase().includes(query.toLowerCase()) ||
+        article.description?.toLowerCase().includes(query.toLowerCase())
+    );
+    
+    console.log("Number of articles after filtering:", filteredArticles.length);
+    return filteredArticles;
   } catch (error) {
     console.error("News API fetch error:", error);
     return [];

@@ -8,9 +8,9 @@ function NewsCardList({ articles = [], onSaveArticle }) {
             <div className="news-card-list__container">
             {articles.map((article) => (
                 <NewsCard 
-                key={article.id} 
-                article={article}
-                onSave={onSaveArticle} />
+                    key={article.id || article.url || index} 
+                    article={article}
+                    onSave={onSaveArticle} />
             ))}
         </div>
         </div>

@@ -56,20 +56,25 @@ setCurrentUser(null);
 }
 
 function handleSaveArticle(article, isSaved) {
-  console.log("handleSaveArticle called with:", { article: article.title, isSaved });
+  console.log("handleSaveArticle called with:", { article, isSaved });
   
-  if (isSaved) {
+   if (isSaved) {
     console.log("Saving article");
-    saveArticle(article)
+
+    const articleWithKeyword = {
+      ...article,
+      keyword: searchTerm || "misc",
+    };
+
+    const updated = [...savedArticles, articleWithKeyword];
+    setSavedArticles(updated);
+    console.log("Updated saved articles:", updated);
   } else {
     console.log("Removing article");
-    const updated = getSavedArticles().filter(a => a.title !== article.title);
-    localStorage.setItem("savedArticles", JSON.stringify(updated));
+    const updated = savedArticles.filter(a => a.title !== article.title);
+    setSavedArticles(updated);
   }
-
-  setSavedArticles(getSavedArticles());
-  console.log("Updated saved articles:", getSavedArticles());
-}
+};
 
 async function handleSearch(query) {
   console.log("Search started - isLoading:", true);

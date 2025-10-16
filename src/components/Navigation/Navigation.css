@@ -13,6 +13,7 @@
 } 
 
 .navigation__link {
+    position: relative;
     text-decoration: none;
     font-family: 'Roboto', Arial, sans-serif;
     font-weight: 700;
@@ -28,8 +29,26 @@
   color: #fff;
 }
 
-.navigation__link_active {
-  border-bottom: 2px solid currentColor;
+.navigation__link_theme_dark.navigation__link_active::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -42px;
+    height: 3px;
+    width: 70px;
+    transform: translateX(-50%);
+    background-color: white;
+}
+
+.navigation__link_theme_light.navigation__link_active::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -42px;
+    height: 3px;
+    width: 130px;
+    transform: translateX(-50%);
+    background-color: black;
 }
 
 .navigation__btn_user_desktop,
@@ -45,7 +64,7 @@
 .navigation__signin-button_theme_light {
   background-color: transparent;
   color: #1a1b22;
-   width: 176px;
+  width: 176px;
   height: 48px;
   top: 19px;
   left: 1160px;

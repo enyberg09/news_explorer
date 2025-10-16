@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./NewsCard.css";
-import { searchNews } from "../../Api/newsApi";
 
 function NewsCard({ article, onSave }) {
     const [saved, setSaved] = useState(false);

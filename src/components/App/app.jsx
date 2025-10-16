@@ -118,7 +118,6 @@ return (
       onLogout={handleLogout}
   />
     <Routes>
-      {/* Home route */}
       <Route
         path="/"
         element={
@@ -151,7 +150,6 @@ return (
         }
       />
 
-      {/* Saved News route */}
       <Route
         path="/saved-news"
         element={
@@ -168,7 +166,6 @@ return (
       />
     </Routes>
 
-    {/* Modals stay global */}
     <LoginModal
       isOpen={isLoginOpen}
       onClose={() => setIsLoginOpen(false)}

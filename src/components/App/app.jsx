@@ -74,7 +74,7 @@ function handleSaveArticle(article, isSaved) {
 
     const articleWithKeyword = {
       ...article,
-      keyword: searchTerm || "misc",
+      keyword: searchQuery || "misc",
     };
 
     const updated = [...savedArticles, articleWithKeyword];

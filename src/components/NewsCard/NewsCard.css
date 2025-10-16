@@ -102,8 +102,12 @@
   z-index: 10;
 }
 
-.is-saved (used conditionally on the save button){
+.news-card__save-btn:hover {
+  background-image: url(../../images/save-article-hover.svg);
+}
 
+.news-card__save-btn.is-saved {
+  background-image: url(../../images/saved-article-blue.svg);
 }
 
 .news-card__source{

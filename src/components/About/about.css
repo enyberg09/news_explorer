@@ -1,9 +1,9 @@
 @import url(../../vendor/fonts.css);
 
 .about {
-max-width: 1200px;
-margin: 0 auto;
-padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
 .about__content {
@@ -14,25 +14,25 @@ padding: 40px 20px;
 }
 
 .about__image {
-height: 464px;
-width: 464px;
-border-radius: 1000px;
+  height: 464px;
+  width: 464px;
+  border-radius: 1000px;
+  background-image: url(../../images/profile-pic.jpg);
 }
 
 .about__title {
-font-family: 'Roboto Slab', Arial, sans-serif;
-font-weight: 400;
-font-size: 40px;
-line-height: 46px;
-letter-spacing: 0px;
-margin-bottom: 24px;
+  font-family: 'Roboto Slab', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 46px;
+  letter-spacing: 0px;
+  margin-bottom: 24px;
 }
 
 .about__text {
-font-family: 'Roboto', Arial, sans-serif;
-font-weight: 400;
-font-size: 18px;
-line-height: 24px;
-letter-spacing: 0px;
-
+  font-family: 'Roboto', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0px;
 }

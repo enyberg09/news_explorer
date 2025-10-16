@@ -41,13 +41,24 @@ function App() {
 
 function handleLogin(data) {
   console.log("Logging in:", data);
-  setCurrentUser({ name: data.name || "User" });
+  const storedUsers = JSON.parse(localStorage.getItem('registeredUsers') || '{}');
+  const userData = storedUsers[data.email];
+  
+  setCurrentUser({ 
+    name: userData?.name || "User",
+    email: data.email 
+  });
   setIsLoginOpen(false);
 }
 
 function handleRegister(data) {
   console.log("Registering:", data);
-  setCurrentUser({ name: data.name || "User" });
+  
+  const storedUsers = JSON.parse(localStorage.getItem('registeredUsers') || '{}');
+  storedUsers[data.email] = { name: data.name, email: data.email };
+  localStorage.setItem('registeredUsers', JSON.stringify(storedUsers));
+  
+  setCurrentUser({ name: data.name, email: data.email });
   setIsRegisterOpen(false);
 }
 

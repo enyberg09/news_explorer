@@ -17,8 +17,10 @@ import NewsCardList from "../NewsCardList/NewsCardList.jsx";
 import {
   getUser,
   setUser,
+  getRegisteredUsers,
+  setRegisteredUsers,
   getSavedArticles,
-  saveArticle,
+  saveArticleList,
 } from "../../utils/storage.jsx";
 
 import { searchNews } from "../../Api/newsApi.jsx";
@@ -27,43 +29,68 @@ function App() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
-  const [currentUser, setCurrentUser] = useState(getUser());
-  const [savedArticles, setSavedArticles] = useState(getSavedArticles());
+  const [currentUser, setCurrentUser] = useState(null);
 
+  const [savedArticles, setSavedArticles] = useState(getSavedArticles());
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    setUser(currentUser);
-  }, [currentUser]);
+    const savedUser = getUser();
+    if (savedUser) {
+      setCurrentUser(savedUser);
+    }
+  }, []);
+
+  useEffect(() => {
+    saveArticleList(savedArticles);
+  }, [savedArticles]);
 
 function handleLogin(data) {
   console.log("Logging in:", data);
-  const storedUsers = JSON.parse(localStorage.getItem('registeredUsers') || '{}');
+
+  const storedUsers = getRegisteredUsers();
   const userData = storedUsers[data.email];
   
-  setCurrentUser({ 
-    name: userData?.name || "User",
-    email: data.email 
-  });
+  if (!userData) {
+    alert("User not found. Please register first.");
+    return;
+  }
+
+  const loggedInUser = {
+    name: userData.name,
+    email: userData.email,
+  };
+
+  setCurrentUser(loggedInUser);
+  setUser(loggedInUser);
   setIsLoginOpen(false);
 }
 
 function handleRegister(data) {
   console.log("Registering:", data);
   
-  const storedUsers = JSON.parse(localStorage.getItem('registeredUsers') || '{}');
-  storedUsers[data.email] = { name: data.name, email: data.email };
-  localStorage.setItem('registeredUsers', JSON.stringify(storedUsers));
+  const storedUsers = getRegisteredUsers();
   
-  setCurrentUser({ name: data.name, email: data.email });
+  if (storedUsers[data.email]) {
+    alert("User already registered. Please login instead.");
+    return;
+  }
+
+  storedUsers[data.email] = { name: data.name, email: data.email };
+  setRegisteredUsers(storedUsers);
+
+  const newUser = { name: data.name, email: data.email };
+  setCurrentUser(newUser);
+  setUser(newUser);
   setIsRegisterOpen(false);
 }
 
 function handleLogout() {
-setCurrentUser(null);
+  setCurrentUser(null);
+  setUser(null)
 }
 
 function handleSaveArticle(article, isSaved) {
@@ -79,11 +106,13 @@ function handleSaveArticle(article, isSaved) {
 
     const updated = [...savedArticles, articleWithKeyword];
     setSavedArticles(updated);
+    saveArticleList(updated);
     console.log("Updated saved articles:", updated);
   } else {
     console.log("Removing article");
     const updated = savedArticles.filter(a => a.title !== article.title);
     setSavedArticles(updated);
+    saveArticleList(updated);
   }
 };
 
@@ -157,9 +186,11 @@ return (
             currentUser={currentUser}
             savedArticles={savedArticles}
             onDeleteArticle={(article) => {
-              setSavedArticles(
-                savedArticles.filter((a) => a.title !== article.title)
+              const updated = savedArticles.filter(
+                (a) => a.title !== article.title
               );
+              setSavedArticles(updated);
+              saveArticleList(updated);
             }}
           />
         }

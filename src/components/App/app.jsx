@@ -9,6 +9,7 @@ import Header from "../Header/header.jsx";
 import NewsCard from "../NewsCard/NewsCard.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
 import RegisterModal from "../RegisterModal/RegisterModal.jsx";
+import RegistrationSuccessModal from "../RegistrationSuccessModal/RegistrationSuccessModal.jsx";
 import SavedNews from "../SavedNews/SavedNews.jsx";
 
 import Preloader from "../Preloader/Preloader.jsx";
@@ -27,6 +28,7 @@ import { searchNews } from "../../Api/newsApi.jsx";
 
 function App() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
   const [currentUser, setCurrentUser] = useState(null);
@@ -85,12 +87,18 @@ function handleRegister(data) {
   const newUser = { name: data.name, email: data.email };
   setCurrentUser(newUser);
   setUser(newUser);
+
   setIsRegisterOpen(false);
+  setIsSuccessOpen(true);
 }
 
 function handleLogout() {
   setCurrentUser(null);
   setUser(null)
+
+  setArticles([]);
+  setHasSearched(false);
+  setSearchQuery("");
 }
 
 function handleSaveArticle(article, isSaved) {
@@ -206,6 +214,16 @@ return (
         setIsRegisterOpen(true);
       }}
     />
+
+    <RegistrationSuccessModal
+      isOpen={isSuccessOpen}
+      onClose={() => setIsSuccessOpen(false)}
+      switchToLogin={() => {
+        setIsSuccessOpen(false);
+        setIsLoginOpen(true);
+  }}
+/>
+
 
     <RegisterModal
       isOpen={isRegisterOpen}

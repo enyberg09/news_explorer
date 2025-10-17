@@ -180,29 +180,3 @@
   width: 20px;
   height: 20px;
 }
-
-/* Mobile responsiveness */
-@media screen and (max-width: 768px) {
-  .header {
-    padding: 16px;
-    height: 56px;
-  }
-
-  .header__logo {
-    margin-left: 16px;
-  }
-
-  .header__menu-icon {
-    display: flex;
-  }
-
-  .navigation__menu {
-    flex-direction: column;
-    gap: 16px;
-    padding: 24px;
-  }
-
-  .header__mobile-overlay {
-    margin-top: 56px;
-  }
-}

@@ -1,6 +1,34 @@
 .saved-news {
   background-color: #fff;
   padding: 0;
+  margin-top: 80px;
+}
+
+.saved-news .news-card-list {
+  padding: 62px 102px;
+  background-color: #f5f6f7;
+}
+
+.saved-news .news-card-list__container {
+  margin: auto;
+}
+
+.saved-news__no-articles {
+  text-align: center;
+  margin-top: 64px;
+}
+
+.saved-news__no-articles-title {
+  font-family: 'Roboto Slab', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #1a1b22;
+}
+
+.saved-news {
+  background-color: #fff;
+  padding: 0;
+  margin-top: 80px;
 }
 
 .saved-news .news-card-list {

@@ -13,21 +13,16 @@ function SavedNews({ currentUser, savedArticles, onDeleteArticle}) {
 
     return (
         <section className="saved-news">
-            <SavedNewsHeader
-                articlesCount={savedArticles.length}
-                currentUser={currentUser}
-                keywords={uniqueKeywords}
-                />
+            <div className="saved-news__sidebar-text">
+            Saved articles
+            </div>
+        <SavedNewsHeader
+            articlesCount={savedArticles.length}
+            currentUser={currentUser}
+            keywords={uniqueKeywords}
+        />
              {savedArticles.length > 0 ? (
                 <>
-                <div className="saved-news__keywords">
-                    {uniqueKeywords.map((keyword, index) => (
-                        <span key={keyword + index} className="keyword">
-                            {keyword}
-                        </span>
-                    ))}
-                </div>
-
                 <NewsCardList 
                     articles={savedArticles}
                     isLoggedIn={true}

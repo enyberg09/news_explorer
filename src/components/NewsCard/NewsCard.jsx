@@ -1,9 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./NewsCard.css";
 
-function NewsCard({ article, onSave, onDelete, isLoggedIn, isSavedNewsPage = false }) {
-  const [saved, setSaved] = useState(false);
+function NewsCard({ 
+    article, 
+    onSave,
+    onDelete, 
+    isLoggedIn, 
+    isSavedNewsPage = false, 
+    savedArticles }) {
+  const [saved, setSaved] = useState(
+  savedArticles?.some(savedArticle => savedArticle.title === article.title) || false
+);
   const [imageError, setImageError] = useState(false);
+
+  useEffect(() => {
+  setSaved(savedArticles?.some(savedArticle => savedArticle.title === article.title) || false);
+    }, [savedArticles, article.title]);
 
   const formattedDate = new Date(article.publishedAt).toLocaleDateString("en-US", {
     month: "long",
@@ -11,25 +23,24 @@ function NewsCard({ article, onSave, onDelete, isLoggedIn, isSavedNewsPage = fal
     year: "numeric"
   });
 
-  // Determine button class dynamically
+
   const btnClassName = isSavedNewsPage
-    ? "news-card__delete-btn" // delete style on saved articles page
-    : `news-card__save-btn ${saved ? "news-card__save-btn-saved" : ""}`; // save style otherwise
+    ? "news-card__delete-btn"
+    : `news-card__save-btn ${saved ? "news-card__save-btn-saved" : ""}`;
 
   function handleSaveClick(e) {
     e.preventDefault();
     e.stopPropagation();
 
     if (isSavedNewsPage) {
-      // Delete article if on saved articles page
       if (onDelete) onDelete(article);
     } else {
-      // Save article if on search results page
       if (!isLoggedIn) return;
       setSaved(s => !s);
       if (onSave) onSave(article, !saved);
     }
   }
+  
 
   return (
     <article className="news-card">
@@ -46,7 +57,6 @@ function NewsCard({ article, onSave, onDelete, isLoggedIn, isSavedNewsPage = fal
           <div className="news-card__placeholder">No image available</div>
         )}
 
-        {/* Keyword top-left for saved articles */}
         {isSavedNewsPage && article.keyword && (
           <div className="news-card__keyword">
             {article.keyword.charAt(0).toUpperCase() + article.keyword.slice(1)}
@@ -60,7 +70,6 @@ function NewsCard({ article, onSave, onDelete, isLoggedIn, isSavedNewsPage = fal
           aria-label={isSavedNewsPage ? "Remove from saved" : saved ? "Unsave article" : "Save article"}
           aria-pressed={saved}
         >
-          {/* Tooltip logic */}
           {!isLoggedIn && !isSavedNewsPage && (
             <span className="news-card__tooltip">Sign in to save articles</span>
           )}

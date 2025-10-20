@@ -6,7 +6,8 @@ function NewsCardList({ articles = [],
     onSaveArticle, 
     onDeleteArticle, 
     isLoggedIn, 
-    isSavedNewsPage  }) {
+    isSavedNewsPage,
+    savedArticles  }) {
 
     const [visibleCount, setVisibleCount] = useState(3);
 
@@ -28,15 +29,16 @@ function NewsCardList({ articles = [],
                     onDelete={onDeleteArticle}
                     isLoggedIn={isLoggedIn}
                     isSavedNewsPage={isSavedNewsPage}
+                    savedArticles={savedArticles}
                     />
             ))}
         </div>
      
 
-        {visibleCount < articles.length && (
+        {visibleCount < articles.length && !isSavedNewsPage && (
             <button className="news-card-list__show-more-btn" onClick={showMore}>
-                Show More
-            </button>
+             Show More
+             </button>
         )}
         </div>
     );

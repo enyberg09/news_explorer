@@ -182,6 +182,8 @@ return (
                       articles={articles}
                       onSaveArticle={handleSaveArticle}
                       isLoggedIn={!!currentUser}
+                      isSavedNewsPage={false}
+                      savedArticles={savedArticles}
                     />
                   )}
                 </section>

@@ -113,6 +113,20 @@
   text-overflow: ellipsis;
 }
 
+.news-card__keyword {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-family: Roboto, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #000000;
+}
+
 .news-card__save-btn {
   position: absolute;
   top: 24px;

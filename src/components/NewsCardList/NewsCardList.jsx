@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import NewsCard from '../NewsCard/NewsCard';
 import './NewsCardList.css';
 
-function NewsCardList({ articles = [], onSaveArticle, isLoggedIn }) {
+function NewsCardList({ articles = [], 
+    onSaveArticle, 
+    onDeleteArticle, 
+    isLoggedIn, 
+    isSavedNewsPage  }) {
+
     const [visibleCount, setVisibleCount] = useState(3);
 
     const showMore = () => {
@@ -20,7 +25,10 @@ function NewsCardList({ articles = [], onSaveArticle, isLoggedIn }) {
                     key={article.id || article.url || index} 
                     article={article}
                     onSave={onSaveArticle}
-                    isLoggedIn={isLoggedIn} />
+                    onDelete={onDeleteArticle}
+                    isLoggedIn={isLoggedIn}
+                    isSavedNewsPage={isSavedNewsPage}
+                    />
             ))}
         </div>
      

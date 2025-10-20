@@ -103,7 +103,12 @@ function handleLogout() {
 
 function handleSaveArticle(article, isSaved) {
   console.log("handleSaveArticle called with:", { article, isSaved });
-  
+   
+   if (!currentUser) {
+    setIsLoginOpen(true);
+    return;
+  }
+
    if (isSaved) {
     console.log("Saving article");
 

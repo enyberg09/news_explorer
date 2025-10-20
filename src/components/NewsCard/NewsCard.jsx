@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./NewsCard.css";
 
-function NewsCard({ article, onSave }) {
+function NewsCard({ article, onSave, isLoggedIn }) {
     const [saved, setSaved] = useState(false);
     const [imageError, setImageError] = useState(false);
     
@@ -13,6 +13,7 @@ function NewsCard({ article, onSave }) {
 
     function handleSave(e) {
         e.preventDefault();
+        if (!isLoggedIn) return;
         setSaved(s => !s);
         if (onSave) onSave(article, !saved);
     }
@@ -40,6 +41,9 @@ function NewsCard({ article, onSave }) {
                 aria-label={saved ? "Unsave article" : "Save article"}
                 aria-pressed={saved}
             >
+                {!isLoggedIn && (
+                    <span className="news-card__tooltip">Sign in to save articles</span>
+                )}
             </button>
             </div>
 

@@ -15,7 +15,7 @@
 
 .modal__container {
   background-color: #fff;
-  padding: 24px 36px 30px; 
+  padding: 24px 36px 28px; 
   border-radius: 16px; 
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
   max-width: 430px; 
@@ -121,7 +121,7 @@
   color: #000; 
   text-align: center; 
   padding-left: 0; 
-  margin-top: 14px; 
+  margin-top: 16px; 
   margin-bottom: 0; 
   cursor: default; 
 }
@@ -186,8 +186,7 @@
   font-size: 18px;
   font-weight: 500;
   border: none;
-  padding-top: 10px;
-  margin-top: 15px;
+  margin-top: 39px;
   border-radius: 100px; 
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -209,10 +208,9 @@
   font-size: 24px;
   line-height: 28px;
   color: #000;
-  margin-bottom: 25px;
+  margin-bottom: 22px;
   margin-top: 0;
   text-align: left;
-  padding-left: 16px;
   padding-top: 14px;
 }
 
@@ -223,16 +221,29 @@
 
 @media screen and (max-width: 768px) {
   .modal__container {
-    max-width: 80%;
-    padding: 20px 28px;
+    width: 430px;
+    height: 380px;
+    padding: 34px 36px 28px 36px;
   }
 
+  .modal__input {
+    width: 358px;
+    height: 47px;
+  }
+
+ .modal__link-option .modal__link-text {
+  font-size: 14px; 
+  margin-top: 16px;
+}
+
   .modal__title {
-    font-size: 20px;
+    font-size: 24px;
+    margin-bottom: 22px;
+    padding: 0;
   }
 
   .modal__submit-btn {
-    height: 56px;
+    height: 64px;
     font-size: 16px;
   }
 
@@ -246,6 +257,7 @@
   .modal__container {
     max-width: 95%;
     padding: 16px 20px;
+
   }
 
   .modal__title {

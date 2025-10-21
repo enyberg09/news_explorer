@@ -220,6 +220,11 @@
 }
 
 @media screen and (max-width: 768px) {
+  .modal__close-btn {
+    top: -35px;
+    right: -45px;
+  }
+  
   .modal__container {
     width: 430px;
     height: 380px;
@@ -247,10 +252,11 @@
     font-size: 16px;
   }
 
-  .modal__close-btn {
-    top: -35px;
-    right: -45px;
+  .modal__error-message_visible {
+    margin: -25px 0 36px;
   }
+
+  
 }
 
 @media screen and (max-width: 320px) {
@@ -258,10 +264,6 @@
     max-width: 95%;
     padding: 16px 20px;
 
-  }
-
-  .modal__title {
-    font-size: 18px;
   }
 
   .modal__submit-btn {
@@ -281,5 +283,9 @@
 
   .modal__label {
     font-size: 10px;
+  }
+
+  .modal__title {
+    font-size: 18px;
   }
 }

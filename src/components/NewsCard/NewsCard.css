@@ -222,11 +222,6 @@
     height: auto;
   }
 
-  .news-card__title {
-    font-size: 22px;
-    line-height: 28px;
-  }
-
   .news-card__description {
     font-size: 14px;
     line-height: 20px;
@@ -235,6 +230,24 @@
   .news-card__media {
     height: 220px;
   }
+
+  .news-card__save-btn {
+    top: 8px;
+    right: 8px;
+  }
+
+  .news-card__source {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .news-card__title {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  
 }
 
 

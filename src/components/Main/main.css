@@ -90,8 +90,8 @@ text-align: left;
     position: static;
     transform: none;
     max-width: 452px;
-    padding-bottom: 48px;
-    margin-top: 88px;
+    padding: 0 0 48px;
+    margin-top: 127px;
   }
 
   .main__hero {
@@ -126,7 +126,6 @@ text-align: left;
     line-height: 52px;
     max-width: 385px;
     text-align: left;
-    margin-top: 38px;
   }
 }
 

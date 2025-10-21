@@ -53,13 +53,37 @@ display: flex;
 gap:24px;
 }
 
-/* Tablet (up to 768px wide) */
+
 @media screen and (max-width: 768px) {
-  /* same as before */
+  .footer__content {
+    flex-direction: row;
+    text-align: center;
+    padding: 24px 40px 18px 40px;
+    gap: 0;
+  }
+
+  .footer__nav {
+    flex-direction: row;
+    gap: 40px;
+    font-size: 12px;
+    margin-left: 100px;
+  }
+
+  .footer__copyright {
+    font-size: 16px;
+  }
+
+  .footer__link {
+    font-size: 18px;
+  }
+
+  .footer__social {
+    gap: 24px;
+  }
 }
 
-/* Mobile (up to 330px wide) */
-@media screen and (max-width: 330px) {
+
+@media screen and (max-width: 320px) {
   .footer__content {
     flex-direction: column;
     text-align: center;

@@ -21,16 +21,6 @@ max-width: 90%;
   background-repeat: no-repeat;
 }
 
-.main__title {
-font-family: 'Roboto Slab', Arial, sans-serif;
-font-weight: 400;
-font-size: 60px;
-color: #FFF;
-leading-trim: NONE;
-line-height: 64px;
-letter-spacing: 0px;
-}
-
 .main__subtitle {
 font-family: 'Roboto', Arial, sans-serif;
 font-weight: 400;
@@ -84,6 +74,12 @@ background-color: #2F71E5;
 color: #FFF;
 }
 
-.main__search-btn:hover {
-  
+.main__title {
+font-family: 'Roboto Slab', Arial, sans-serif;
+font-weight: 400;
+font-size: 60px;
+color: #FFF;
+leading-trim: NONE;
+line-height: 64px;
+letter-spacing: 0px;
 }

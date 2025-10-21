@@ -1,5 +1,6 @@
 const NEWS_API_BASE_URL = "https://newsapi.org/v2/everything";
-const API_KEY = "4961443979844a5e9d4c2a499a709923";
+const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
+console.log("API Key loaded:", API_KEY ? "Yes" : "No");
 
 /**
  * Search news articles by a query
@@ -25,15 +26,13 @@ export const searchNews = async (query) => {
 
   try {
     const response = await fetch(url);
-    console.log("Search URL:", url);
+
     if (!response.ok) {
         console.error("News API HTTP error:", response.status);
         return [];
     }
 
     const data = await response.json();
-    console.log("API Response:", data);
-    console.log("Number of articles:", data.articles?.length);
     
     const filteredArticles = (data.articles || []).filter(
       (article) =>
@@ -41,7 +40,6 @@ export const searchNews = async (query) => {
         article.description?.toLowerCase().includes(query.toLowerCase())
     );
     
-    console.log("Number of articles after filtering:", filteredArticles.length);
     return filteredArticles;
   } catch (error) {
     console.error("News API fetch error:", error);

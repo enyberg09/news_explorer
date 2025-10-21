@@ -130,7 +130,6 @@ function handleSaveArticle(article, isSaved) {
 };
 
 async function handleSearch(query) {
-  console.log("Search started - isLoading:", true);
   setIsLoading(true);
   setHasSearched(true);
   setSearchQuery(query);
@@ -139,13 +138,11 @@ async function handleSearch(query) {
   
   try {
     const fetchedArticles = await searchNews(query);
-    console.log("Got articles:", fetchedArticles.length);
     setArticles(fetchedArticles);
   } catch (error) {
     console.error("Search failed:", error);
     setArticles([]);
   } finally {
-    console.log("Search finished - isLoading:", false);
     setIsLoading(false);
   }
 }

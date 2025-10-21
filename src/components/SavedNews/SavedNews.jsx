@@ -22,7 +22,6 @@ function SavedNews({ currentUser, savedArticles, onDeleteArticle}) {
             keywords={uniqueKeywords}
         />
              {savedArticles.length > 0 ? (
-                <>
                 <NewsCardList 
                     articles={savedArticles}
                     isLoggedIn={true}
@@ -31,7 +30,6 @@ function SavedNews({ currentUser, savedArticles, onDeleteArticle}) {
                     isSavedNewsPage={true}
                     savedArticles={savedArticles}
                 />
-                </>
                     ) : (
                         <div className="saved-news__no-articles">
                             <h2 className="saved-news__no-articles-title">

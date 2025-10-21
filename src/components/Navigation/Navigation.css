@@ -1,17 +1,3 @@
-.navigation__menu {
-    list-style: none;
-    display: flex;
-    gap: 24px;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-}
-
-.navigation__menu_type_mobile {
-    flex-direction: column;
-    gap: 16px;
-} 
-
 .navigation__link {
     position: relative;
     text-decoration: none;
@@ -50,6 +36,20 @@
     transform: translateX(-50%);
     background-color: black;
 }
+
+.navigation__menu {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.navigation__menu_type_mobile {
+    flex-direction: column;
+    gap: 16px;
+} 
 
 .navigation__btn_user_desktop,
 .navigation__signin-button_desktop {

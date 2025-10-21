@@ -91,3 +91,131 @@
   width: 16px;
   height: 16px;
 }
+
+@media screen and (max-width: 768px) {
+  .navigation__menu {
+    display: flex;
+    gap: 20px;
+  }
+
+
+  .header__menu-icon {
+    display: none;
+  }
+
+  .navigation__menu_type_mobile {
+    display: none;
+  }
+
+  .navigation__btn_user_theme_light,
+  .navigation__signin-button_theme_light {
+    background-color: transparent;
+    color: #1a1b22;
+    width: 176px;
+    height: 48px;
+    top: 19px;
+    left: 1160px;
+    border-width: 1px;
+    border-radius: 100px;
+    border: 1px solid #000;
+}
+
+  .navigation__btn_user_theme_dark,
+  .navigation__signin-button_theme_dark {
+    background-color: transparent;
+    color: #fff;
+    width: 176px;
+    height: 48px;
+    top: 19px;
+    left: 1160px;
+    border-width: 1px;
+    border-radius: 100px;
+    border: 1px solid #fff;
+  }
+
+  .navigation__link_theme_dark.navigation__link_active::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -37px;
+    height: 3px;
+    width: 70px;
+    transform: translateX(-50%);
+    background-color: white;
+  }
+
+  .navigation__link_theme_light.navigation__link_active::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -37px;
+    height: 3px;
+    width: 130px;
+    transform: translateX(-50%);
+    background-color: black;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .navigation__menu {
+    display: none; 
+  }
+
+  .header__menu-icon {
+    display: flex;
+  }
+
+  .navigation__menu_type_mobile {
+    display: flex; 
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .navigation__btn_user_theme_light,
+  .navigation__signin-button_theme_light {
+    background-color: transparent;
+    color: #1a1b22;
+    width: 176px;
+    height: 48px;
+    top: 19px;
+    left: 1160px;
+    border-width: 1px;
+    border-radius: 100px;
+    border: 1px solid #000;
+}
+
+  .navigation__btn_user_theme_dark,
+  .navigation__signin-button_theme_dark {
+    background-color: transparent;
+    color: #fff;
+    width: 176px;
+    height: 48px;
+    top: 19px;
+    left: 1160px;
+    border-width: 1px;
+    border-radius: 100px;
+    border: 1px solid #fff;
+  }
+
+  .navigation__link_theme_dark.navigation__link_active::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -37px;
+    height: 3px;
+    width: 70px;
+    transform: translateX(-50%);
+    background-color: white;
+  }
+
+  .navigation__link_theme_light.navigation__link_active::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -37px;
+    height: 3px;
+    width: 130px;
+    transform: translateX(-50%);
+    background-color: black;
+  }
+}

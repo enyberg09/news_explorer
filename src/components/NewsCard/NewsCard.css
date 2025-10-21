@@ -215,3 +215,48 @@
 .news-card__save-btn:focus {
   outline: 2px solid rgba(26,27,34,0.08);
 }
+
+@media screen and (max-width: 768px) {
+  .news-card {
+    width: 100%;
+    height: auto;
+  }
+
+  .news-card__title {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .news-card__description {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .news-card__media {
+    height: 220px;
+  }
+}
+
+
+@media screen and (max-width: 320px) {
+  .news-card__title {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .news-card__description {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .news-card__media {
+    height: 180px;
+  }
+
+  .news-card__keyword,
+  .news-card__save-btn,
+  .news-card__delete-btn {
+    width: 32px;
+    height: 32px;
+  }
+}

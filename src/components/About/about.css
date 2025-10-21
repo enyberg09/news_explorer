@@ -37,3 +37,44 @@
   margin-bottom: 24px;
 }
 
+@media screen and (max-width: 768px) {
+  .about__content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .about__image {
+    width: 232px;
+    height: 232px;
+  }
+
+  .about__title {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .about__text {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+
+@media screen and (max-width: 320px) {
+  .about__image {
+    width: 220px;
+    height: 220px;
+  }
+
+  .about__title {
+    font-size: 30px;
+    line-height: 30px;
+  }
+
+  .about__text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

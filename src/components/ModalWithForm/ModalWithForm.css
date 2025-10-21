@@ -220,3 +220,54 @@
   display: flex;
   justify-content: flex-start;
 }
+
+@media screen and (max-width: 768px) {
+  .modal__container {
+    max-width: 80%;
+    padding: 20px 28px;
+  }
+
+  .modal__title {
+    font-size: 20px;
+  }
+
+  .modal__submit-btn {
+    height: 56px;
+    font-size: 16px;
+  }
+
+  .modal__close-btn {
+    top: -35px;
+    right: -45px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .modal__container {
+    max-width: 95%;
+    padding: 16px 20px;
+  }
+
+  .modal__title {
+    font-size: 18px;
+  }
+
+  .modal__submit-btn {
+    height: 48px;
+    font-size: 14px;
+  }
+
+  .modal__close-btn {
+    top: -25px;
+    right: -35px;
+  }
+
+  .modal__input {
+    height: 50px;
+    font-size: 12px;
+  }
+
+  .modal__label {
+    font-size: 10px;
+  }
+}

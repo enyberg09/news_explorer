@@ -218,13 +218,23 @@
 
 @media screen and (max-width: 768px) {
   .news-card {
-    width: 100%;
+    width: 224px;
     height: auto;
+  }
+
+  .news-card__delete-btn {
+    top: 8px;
+    right: 8px;
   }
 
   .news-card__description {
     font-size: 14px;
     line-height: 20px;
+  }
+
+  .news-card__keyword {
+    top: 8px;
+    left: 8px;
   }
 
   .news-card__media {

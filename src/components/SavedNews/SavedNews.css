@@ -26,6 +26,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  .saved-news__sidebar-text {
+    color: #fff;
+  }
+  
   .saved-news .news-card-list {
     padding: 40px 20px;
   }

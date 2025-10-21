@@ -151,7 +151,7 @@
   background-image: url(../../images/save-article-hover.svg);
 }
 
-.news-card__save-btn.is-saved {
+.news-card__save-btn-saved {
   background-image: url(../../images/saved-article-blue.svg);
 }
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import NewsCard from '../NewsCard/NewsCard';
+import NotFound from '../NotFound/NotFound';
 import './NewsCardList.css';
 
 function NewsCardList({ articles = [], 
@@ -15,7 +16,11 @@ function NewsCardList({ articles = [],
         setVisibleCount(prev => Math.min(prev + 3, articles.length));
     };
 
-    const visibleArticles = articles.slice(0, visibleCount);
+    const visibleArticles = isSavedNewsPage ? articles : articles.slice(0, visibleCount);
+
+    if (articles.length === 0) {
+        return <NotFound />;
+    }
 
     return (
         <div className="news-card-list">

@@ -4,7 +4,6 @@ import { useState } from "react";
 function Main({ onSearch }) {
   const [searchTerm, setSearchTerm] = useState("");
 
-  // handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!searchTerm.trim()) return;

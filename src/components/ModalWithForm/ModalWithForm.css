@@ -92,7 +92,7 @@
 }
 
 .modal__input::placeholder {
-  color: #b6bcbf; 
+  color: #E6E8EB; 
 }
 
 .modal__input:focus {
@@ -242,12 +242,23 @@
 
   .modal__label {
     height: 47px;
+    margin-bottom: 0;
   }
+
+  .modal__label:nth-child(2) {
+    margin-top: 31px;
+  }
+
 
  .modal__link-option .modal__link-text {
     font-size: 14px; 
     margin-top: 16px;
 }
+
+   .modal__submit-btn {
+    height: 64px;
+    font-size: 18px;
+  }
 
   .modal__title {
     font-size: 24px;
@@ -255,11 +266,7 @@
     padding: 0;
   }
 
-  .modal__submit-btn {
-    height: 64px;
-    font-size: 16px;
-  }
-
+ 
   .modal__error-message_visible {
     margin: -25px 0 36px;
   }
@@ -288,12 +295,17 @@
   }
 
   .modal__input {
-    height: 50px;
-    font-size: 12px;
+    height: 47px;
+    font-size: 14px;
   }
 
   .modal__label {
-    font-size: 10px;
+    font-size: 12px;
+    gap: 30px;
+  }
+
+  .modal__label:nth-child(2) {
+  margin-top: 30px;
   }
 
   .modal-open .header__mobile-overlay {
@@ -304,11 +316,10 @@
     display: none !important;
   }
   
-  
 
   .modal__submit-btn {
     height: 48px;
-    font-size: 14px;
+    font-size: 18px;
   }
 
   .modal__title {

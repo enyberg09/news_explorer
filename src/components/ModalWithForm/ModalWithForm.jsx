@@ -21,10 +21,8 @@ function ModalWithForm({
 
   if (isOpen) {
     document.addEventListener("keydown", handleEscape);
-    // ADD THIS LINE - Hide mobile menu overlay when modal opens
     document.body.classList.add('modal-open');
   } else {
-    // ADD THIS LINE - Show mobile menu overlay when modal closes
     document.body.classList.remove('modal-open');
   }
   

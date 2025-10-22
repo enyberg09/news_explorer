@@ -52,7 +52,7 @@
 } 
 
 .navigation__btn_user_desktop,
-.navigation__signin-button_desktop {
+.navigation__signin-btn_desktop {
   padding: 8px 16px;
   border-radius: 8px;
   border: none;
@@ -61,7 +61,7 @@
 }
 
 .navigation__btn_user_theme_light,
-.navigation__signin-button_theme_light {
+.navigation__signin-btn_theme_light {
   background-color: transparent;
   color: #1a1b22;
   width: 176px;
@@ -74,7 +74,7 @@
 }
 
 .navigation__btn_user_theme_dark,
-.navigation__signin-button_theme_dark {
+.navigation__signin-btn_theme_dark {
   background-color: transparent;
   color: #fff;
   width: 176px;
@@ -108,7 +108,7 @@
   }
 
   .navigation__btn_user_theme_light,
-  .navigation__signin-button_theme_light {
+  .navigation__signin-btn_theme_light {
     background-color: transparent;
     color: #1a1b22;
     width: 176px;
@@ -121,7 +121,7 @@
 }
 
   .navigation__btn_user_theme_dark,
-  .navigation__signin-button_theme_dark {
+  .navigation__signin-btn_theme_dark {
     background-color: transparent;
     color: #fff;
     width: 176px;
@@ -168,11 +168,13 @@
   .navigation__menu_type_mobile {
     display: flex; 
     flex-direction: column;
-    gap: 16px;
+    align-items: flex-start;
+    gap: 24px;
+    width: 100%;
   }
 
   .navigation__btn_user_theme_light,
-  .navigation__signin-button_theme_light {
+  .navigation__signin-btn_theme_light {
     background-color: transparent;
     color: #1a1b22;
     width: 176px;
@@ -185,7 +187,7 @@
 }
 
   .navigation__btn_user_theme_dark,
-  .navigation__signin-button_theme_dark {
+  .navigation__signin-btn_theme_dark {
     background-color: transparent;
     color: #fff;
     width: 176px;
@@ -197,25 +199,23 @@
     border: 1px solid #fff;
   }
 
-  .navigation__link_theme_dark.navigation__link_active::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: -37px;
-    height: 3px;
-    width: 70px;
-    transform: translateX(-50%);
-    background-color: white;
+  .navigation__link_theme_dark {
+    color: #fff;
+    font-size: 18px;
   }
 
-  .navigation__link_theme_light.navigation__link_active::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: -37px;
-    height: 3px;
-    width: 130px;
-    transform: translateX(-50%);
-    background-color: black;
+
+    .navigation__signin-btn_mobile {
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 100px;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 40px;
+    cursor: pointer;
+  }
+
+  .navigation__signin-btn_mobile:hover {
+    background-color: rgba(255, 255, 255, 0.2);
   }
 }

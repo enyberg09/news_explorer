@@ -227,6 +227,7 @@
   
   .modal__container {
     width: 430px;
+    height: 380px;
     padding: 34px 36px 28px 36px;
   }
 
@@ -239,9 +240,13 @@
     height: 47px;
   }
 
+  .modal__label {
+    height: 47px;
+  }
+
  .modal__link-option .modal__link-text {
-  font-size: 14px; 
-  margin-top: 16px;
+    font-size: 14px; 
+    margin-top: 16px;
 }
 
   .modal__title {

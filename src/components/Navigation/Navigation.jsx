@@ -44,7 +44,7 @@ function Navigation({
     return (
       <button
         type="button"
-        className={`navigation__signin-button_${isMobile ? "mobile" : "desktop"} navigation__signin-button_theme_${theme}`}
+        className={`navigation__signin-btn_${isMobile ? "mobile" : "desktop"} navigation__signin-btn_theme_${theme}`}
         onClick={onSignInClick}
       >
         Sign in

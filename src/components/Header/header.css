@@ -156,9 +156,25 @@
     font-size: 16px;
   }
 
+  .header__menu-icon {
+    background-color: transparent;
+    border: none;
+    height: 24px;
+    width: 24px;
+    background-image: url(../../images/menu.svg);
+    margin-left: auto;
+}
+
   .header__mobile-overlay {
     padding-top: 80px;
   }
+
+  .header.header_theme_dark.header_mobile-menu-open {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
   .navigation__menu_type_mobile {
     gap: 16px;

@@ -132,27 +132,47 @@ text-align: left;
 
 @media screen and (max-width: 320px) {
   .main__content {
-    max-width: 452px;
-  }
-  .main__title {
-    font-size: 48px;
-    line-height: 52px;
-    max-width: 385px;
-    text-align: left;
+  max-width: 100%; 
+  padding: 0 16px 0 19px;
+  margin-top: 86px;
+}
+
+  .main__search-btn {
+    font-size: 18px;
+    width: 288px;
+    height: 56px;
+    margin-bottom: 32px;
   }
 
   .main__search-form {
-    width: 448px;
-    margin: 88px auto 80px;
-  }
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 288px;
+    margin: 0;
+    background-color: transparent;
+    height: auto;
+    gap: 16px;
+}
 
   .main__search-input {
-    font-size: 14px;
+    width: 288px;
+    height: 56px !important;
+    font-size: 16px;
     padding-left: 16px;
+    flex: none;
+    margin-top: 122px;
   }
 
-  .main__search-btn {
-    font-size: 16px;
-    width: 160px;
+  .main__subtitle {
+    font-size: 18px;
+  }
+
+  .main__title {
+    font-size: 36px;
+    line-height: 52px;
+    max-width: 285px;
+    align-items: center;
+    text-align: left;
   }
 }

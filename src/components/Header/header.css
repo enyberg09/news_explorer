@@ -42,6 +42,10 @@
   position: relative;
 }
 
+.header__menu-icon {
+  display: none;
+}
+
 .header__mobile-overlay {
   display: none;
   visibility: hidden;
@@ -152,6 +156,8 @@
     padding: 16px 20px;
   }
 
+
+  
   .header__logo {
     font-size: 16px;
   }
@@ -193,6 +199,10 @@
     align-items: center;
 }
 
+  .modal__overlay_opened ~ * .header__menu-icon,
+    body.modal-open .header__menu-icon {
+      display: none !important;
+}
   
   .navigation__link_active::after {
     display: none;

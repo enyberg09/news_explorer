@@ -15,17 +15,24 @@ function ModalWithForm({
 }) {
 
   useEffect(() => {
-    const handleEscape = (evt) => {
-      if (evt.key === "Escape") onClose();
-    };
+  const handleEscape = (evt) => {
+    if (evt.key === "Escape") onClose();
+  };
 
-    if (isOpen) {
-      document.addEventListener("keydown", handleEscape);
-    }
-    return () => {
-      document.removeEventListener("keydown", handleEscape);
-    };
-  }, [isOpen, onClose]);
+  if (isOpen) {
+    document.addEventListener("keydown", handleEscape);
+    // ADD THIS LINE - Hide mobile menu overlay when modal opens
+    document.body.classList.add('modal-open');
+  } else {
+    // ADD THIS LINE - Show mobile menu overlay when modal closes
+    document.body.classList.remove('modal-open');
+  }
+  
+  return () => {
+    document.removeEventListener("keydown", handleEscape);
+    document.body.classList.remove('modal-open');
+  };
+}, [isOpen, onClose]);
 
 
   const handleOverlayClick = (evt) => {

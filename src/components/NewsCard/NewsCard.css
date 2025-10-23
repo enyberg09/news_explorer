@@ -281,18 +281,33 @@
     line-height: 18px;
   }
 
-  .news-card__keyword {
-    
-  }
-
   .news-card__media {
     height: 180px;
   }
 
-  .news-card__keyword,
+  .news-card__keyword {
+    display: inline-block;
+    width: auto;
+    top: 16px;
+    left: 16px;
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: auto;
+    max-width: 100%;
+}
+
   .news-card__save-btn,
   .news-card__delete-btn {
     width: 32px;
     height: 32px;
-  }
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
 }

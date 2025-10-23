@@ -48,7 +48,6 @@
   border: none;
   background-repeat: no-repeat;
   background-position: center;
-  z-index: 10;
   pointer-events: auto;
 }
 

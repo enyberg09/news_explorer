@@ -155,6 +155,7 @@ return (
       onSignInClick={() => setIsLoginOpen(true)}
       onSignUpClick={() => setIsRegisterOpen(true)}
       onLogout={handleLogout}
+      isAnyModalOpen={isLoginOpen || isRegisterOpen || isSuccessOpen}
   />
     <Routes>
       <Route

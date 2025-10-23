@@ -9,6 +9,8 @@ function Header({
   onSignInClick,
   isAnyModalOpen
 }) {
+  console.log("Header - isAnyModalOpen:", isAnyModalOpen);
+
   const location = useLocation();
   const isSavedNewsPage = location.pathname === "/saved-news";
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -47,7 +49,7 @@ function Header({
           <span className="header__menu-icon-line"></span>
         </button>
       )}
-      {isMobileMenuOpen && (
+      {isMobileMenuOpen && !isAnyModalOpen && (
         <div className="header__mobile-overlay" onClick={closeMobileMenu}>
           <div className="navigation_mobile-open" onClick={(e) => e.stopPropagation()}>
             <div className="navigation__mobile-header">

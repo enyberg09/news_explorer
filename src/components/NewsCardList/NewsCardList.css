@@ -89,11 +89,11 @@
 
 @media screen and (max-width: 320px) {
   .news-card-list {
-    padding: 0 16px 0 16px;
+    padding: 0 12px 12px 12px;
   }
   
   .news-card-list__btn-container {
-    margin: 20px auto 0 auto;
+    margin: 0 auto;
 }
 
   .news-card-list__show-more-btn {
@@ -106,9 +106,8 @@
 
   .news-card-list__container {
     grid-template-columns: 1fr;
-    width: 100%;
-    gap: 16px;
-    justify-items: center;
+    justify-content: center;
+    gap: 10px;
     margin: 0;
 }
 
@@ -118,7 +117,6 @@
     margin-bottom: 58px;
     padding-top: 32px;
   }
-
   
 
 }

@@ -281,6 +281,10 @@
     line-height: 18px;
   }
 
+  .news-card__keyword {
+    
+  }
+
   .news-card__media {
     height: 180px;
   }

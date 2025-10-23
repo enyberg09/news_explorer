@@ -31,8 +31,8 @@
   }
   
   .saved-news .news-card-list {
-    padding: 40px 20px;
-  }
+        padding: 16px 12px;
+    }
 
   .saved-news__no-articles {
     margin-top: 40px;

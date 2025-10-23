@@ -89,7 +89,7 @@
 
 @media screen and (max-width: 320px) {
   .news-card-list {
-    padding: 0 12px 12px 12px;
+    padding: 24px 12px 12px 12px;
   }
   
   .news-card-list__btn-container {
@@ -112,10 +112,7 @@
 }
 
   .news-card-list__title {
-    font-size: 30px;
-    text-align: left;
-    margin-bottom: 58px;
-    padding-top: 32px;
+    display: none;
   }
   
 

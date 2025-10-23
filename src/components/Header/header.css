@@ -156,8 +156,6 @@
     padding: 16px 20px;
   }
 
-
-  
   .header__logo {
     font-size: 16px;
   }
@@ -167,7 +165,7 @@
     border: none;
     height: 24px;
     width: 24px;
-    background-image: url(../../images/menu.svg);
+    background-image: url(../../images/menu-icon-white.svg);
     margin-left: auto;
 }
 
@@ -197,6 +195,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+  .header_theme_light .navigation__link,
+  .header_theme_light .navigation__signin-btn_mobile {
+    color: #fff;
+}
+
+  .header_theme_light .header__menu-icon {
+    background-image: url(../../images/menu-icon-black.svg);
 }
 
   .modal__overlay_opened ~ * .header__menu-icon,
@@ -251,11 +258,16 @@
     margin: 0 auto;
 }
 
+  .navigation_mobile-open .navigation__btn_user_theme_light {
+    color: #FFF;
+    border: 1px solid #FFF;
+}
+
   .navigation__mobile-title {
     font-family: 'Roboto Slab', Arial, sans-serif;
     font-weight: 700;
     font-size: 18px;
-    color: #fff;
+    color: #FFF;
 }
 
   .navigation__signin-btn_mobile.navigation__signin-btn_theme_dark {

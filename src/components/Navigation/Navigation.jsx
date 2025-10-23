@@ -32,7 +32,7 @@ function Navigation({
         className={`navigation__btn_user_${isMobile ? "mobile" : "desktop"} navigation__btn_user_theme_${theme}`}
         onClick={onLogout}
       >
-        {currentUser?.name || "User"}
+        {isMobile ? "Logout" : (currentUser?.name || "User")}
         <img 
           src={logoutIcon} 
           alt="logout" 

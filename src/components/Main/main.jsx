@@ -1,6 +1,6 @@
 import "./main.css";
 import { useState } from "react";
-import mainPagePic from '../../images/main-page-pic?url';
+import mainPagePic from '../../images/main-page-pic.svg';
 
 function Main({ onSearch }) {
   const [searchTerm, setSearchTerm] = useState("");

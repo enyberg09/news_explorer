@@ -48,4 +48,4 @@ News Explorer is a responsive web application built with React that enables user
 
 ## Live Demo
 
-Check out the live version: [News Explorer](https://://enyberg09.github.io/news_explorer/)
+Check out the live version: [News Explorer](https://enyberg09.github.io/news_explorer/)

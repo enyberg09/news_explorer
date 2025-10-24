@@ -1,5 +1,6 @@
 import "./main.css";
 import { useState } from "react";
+import mainPagePic from '../images/main-page-pic.svg';
 
 function Main({ onSearch }) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -13,7 +14,7 @@ function Main({ onSearch }) {
 
   return (
   <main className="main">
-    <div className="main__hero">
+    <div className="main__hero" style={{backgroundImage: `url(${mainPagePic})`}}>
       <div className="main__content">
         <h1 className="main__title">What's going on in the world?</h1>
         <p className="main__subtitle">

@@ -6,7 +6,6 @@ import About from "../About/about.jsx";
 import Main from "../Main/main.jsx";
 import Footer from "../Footer/footer.jsx";
 import Header from "../Header/header.jsx";
-import NewsCard from "../NewsCard/NewsCard.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
 import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 import RegistrationSuccessModal from "../RegistrationSuccessModal/RegistrationSuccessModal.jsx";
@@ -51,7 +50,6 @@ function App() {
   }, [savedArticles]);
 
 function handleLogin(data) {
-  console.log("Logging in:", data);
 
   const storedUsers = getRegisteredUsers();
   const userData = storedUsers[data.email];
@@ -72,7 +70,6 @@ function handleLogin(data) {
 }
 
 function handleRegister(data) {
-  console.log("Registering:", data);
   
   const storedUsers = getRegisteredUsers();
   
@@ -102,7 +99,6 @@ function handleLogout() {
 }
 
 function handleSaveArticle(article, isSaved) {
-  console.log("handleSaveArticle called with:", { article, isSaved });
    
    if (!currentUser) {
     setIsLoginOpen(true);
@@ -110,7 +106,6 @@ function handleSaveArticle(article, isSaved) {
   }
 
    if (isSaved) {
-    console.log("Saving article");
 
     const articleWithKeyword = {
       ...article,
@@ -122,7 +117,6 @@ function handleSaveArticle(article, isSaved) {
     saveArticleList(updated);
     console.log("Updated saved articles:", updated);
   } else {
-    console.log("Removing article");
     const updated = savedArticles.filter(a => a.title !== article.title);
     setSavedArticles(updated);
     saveArticleList(updated);

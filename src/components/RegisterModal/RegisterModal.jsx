@@ -1,4 +1,3 @@
-import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import useFormValidation from "../Hooks/useFormValidation.jsx";
 

@@ -1,4 +1,3 @@
-import React from "react";
 import SavedNewsHeader from "./SavedNewsHeader";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import Footer from "../Footer/footer.jsx";

@@ -305,7 +305,7 @@
   }
 
   .modal__label:nth-child(2) {
-  margin-top: 30px;
+    margin-top: 30px;
   }
 
   .modal-open .header__mobile-overlay {

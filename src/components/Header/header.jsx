@@ -9,8 +9,7 @@ function Header({
   onSignInClick,
   isAnyModalOpen
 }) {
-  console.log("Header - isAnyModalOpen:", isAnyModalOpen);
-
+  
   const location = useLocation();
   const isSavedNewsPage = location.pathname === "/saved-news";
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

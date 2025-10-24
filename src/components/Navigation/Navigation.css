@@ -1,10 +1,10 @@
 .navigation__link {
-    position: relative;
-    text-decoration: none;
-    font-family: 'Roboto', Arial, sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    transition: color 0.3s ease;
+  position: relative;
+  text-decoration: none;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  transition: color 0.3s ease;
 }
 
 .navigation__link_theme_light {
@@ -16,39 +16,39 @@
 }
 
 .navigation__link_theme_dark.navigation__link_active::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: -42px;
-    height: 3px;
-    width: 70px;
-    transform: translateX(-50%);
-    background-color: white;
+  content: '';
+  position: absolute;
+  left: 50%;
+   bottom: -42px;
+  height: 3px;
+  width: 70px;
+  transform: translateX(-50%);
+  background-color: white;
 }
 
 .navigation__link_theme_light.navigation__link_active::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: -42px;
-    height: 3px;
-    width: 130px;
-    transform: translateX(-50%);
-    background-color: black;
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -42px;
+  height: 3px;
+  width: 130px;
+  transform: translateX(-50%);
+  background-color: black;
 }
 
 .navigation__menu {
-    list-style: none;
-    display: flex;
-    gap: 42px;
-    align-items: center;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 42px;
+  align-items: center;
+  padding: 0;
+  margin: 0;
 }
 
 .navigation__menu_type_mobile {
-    flex-direction: column;
-    gap: 16px;
+  flex-direction: column;
+  gap: 16px;
 } 
 
 .navigation__btn_user_desktop,

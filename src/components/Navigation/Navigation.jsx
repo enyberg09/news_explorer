@@ -1,4 +1,3 @@
-import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navigation.css";
 import logoutBlack from "../../images/logout-btn-black.svg";

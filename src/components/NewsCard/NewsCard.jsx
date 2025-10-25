@@ -46,13 +46,15 @@ function NewsCard({
     <article className="news-card">
       <div className="news-card__media">
         {article.urlToImage && !imageError ? (
-          <img
-            src={article.urlToImage}
-            alt={article.title}
-            className="news-card__image"
-            loading="lazy"
-            onError={() => setImageError(true)}
-          />
+          <a href={article.url} target="_blank" rel="noopener noreferrer">
+            <img
+              src={article.urlToImage}
+              alt={article.title}
+              className="news-card__image"
+              loading="lazy"
+              onError={() => setImageError(true)}
+            />
+          </a>
         ) : (
           <div className="news-card__placeholder">No image available</div>
         )}
@@ -81,7 +83,9 @@ function NewsCard({
 
       <div className="news-card__content">
         <p className="news-card__date">{formattedDate}</p>
-        <h3 className="news-card__title">{article.title}</h3>
+        <a href={article.url} target="_blank" rel="noopener noreferrer" className="news-card__title-link">
+          <h3 className="news-card__title">{article.title}</h3>
+        </a>
         <p className="news-card__description">{article.description}</p>
         <p className="news-card__source">{article.source?.name}</p>
       </div>

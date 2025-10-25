@@ -183,6 +183,11 @@
   text-overflow: ellipsis;
 }
 
+.news-card__title-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .news-card__tooltip {
   position: absolute;
   border-radius: 10px;

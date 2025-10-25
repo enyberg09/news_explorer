@@ -1,6 +1,7 @@
 .news-card {
   display: flex;
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   height: 576px;
   border-radius: 16px;
   overflow: hidden;
@@ -223,7 +224,8 @@
 
 @media screen and (max-width: 768px) {
   .news-card {
-    width: 224px;
+    width: 100%;
+    max-width: 224px;
     height: auto;
   }
 
@@ -268,7 +270,8 @@
 
 @media screen and (max-width: 320px) {
   .news-card {
-    width: 288px;
+    max-width: 280px;
+    width: 100%;
   }
 
   .news-card__description {

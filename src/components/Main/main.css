@@ -16,7 +16,7 @@
 
 .main__hero {
   height: 576px;
-  background-image: url('../../src/images/main-page-pic.svg');
+  background-image: url('../../src/images/main-page-pic.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -27,7 +27,6 @@
   font-weight: 400;
   font-size: 18px;
   color: #FFF;
-  leading-trim: NONE;
   line-height: 24px;
   letter-spacing: 0px;
   margin-top: 32px;

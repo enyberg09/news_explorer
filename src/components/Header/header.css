@@ -148,6 +148,27 @@
 
 }
 
+@media (min-width: 321px) and (max-width: 484px) {
+  .header {
+    padding: 18px 24px;
+  }
+
+  .header__logo {
+    font-size: 17px;
+  }
+
+  .navigation__menu {
+    gap: 16px;
+  }
+
+  .navigationbtn_user_desktop,
+  .navigationsignin-button_desktop {
+    padding: 12px 18px;
+    font-size: 16px;
+  }
+
+}
+
 
 @media screen and (max-width: 320px) {
   .header {

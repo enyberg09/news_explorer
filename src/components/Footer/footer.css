@@ -80,6 +80,30 @@
   }
 }
 
+@media (min-width: 321px) and (max-width: 484px) {
+   .footer__content {
+    padding: 20px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .footer__nav {
+    gap: 20px;
+    margin: 0;
+    font-size: 14px;
+  }
+
+  .footer__social {
+    gap: 16px;
+  }
+
+  .footer__copyright {
+    text-align: center;
+    width: 100%;
+    font-size: 15px;
+  }
+}
 
 @media screen and (max-width: 320px) {
   .footer__content {

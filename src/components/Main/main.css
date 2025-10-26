@@ -149,13 +149,13 @@
    .main__search-form {
     width: 100%;
     max-width: 100%;
-    display: flex; /* Ensure the button and input are aligned properly */
+    display: flex;
     margin-bottom: 32px;
   }
 
   .main__search-btn {
-    width: 100%; /* Keep width as 100% so it fills the form */
-    height: 100%; /* Makes the button fill the form's height */
+    width: 100%;
+    height: 100%;
   }
 
   .main__search-input {

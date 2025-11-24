@@ -1,12 +1,12 @@
-# News Explorer
+# News Explorer 🌎
 
 Frontend for the News Explorer application - a web application that allows users to search for news articles and save their favorites.
 
-## About The Project
+## About The Project 📝
 
 News Explorer is a responsive web application built with React that enables users to search for news articles using a third-party news API. Users can browse current news, search for specific topics, and create a personalized collection of saved articles.
 
-## Features
+## Features 💻
 
 - Search for news articles by keyword
 - Browse current and trending news
@@ -14,7 +14,7 @@ News Explorer is a responsive web application built with React that enables user
 - Clean, modern user interface
 - Real-time news data from external API
 
-## Technologies Used
+## Technologies Used ⚙️
 
 - **Frontend:** React, JavaScript (ES6+), HTML5, CSS3
 - **API Integration:** RESTful API calls to third-party news service
@@ -22,7 +22,7 @@ News Explorer is a responsive web application built with React that enables user
 - **Version Control:** Git, GitHub
 - **Deployment:** [Add your deployment platform if applicable]
 
-## Installation and Setup
+## Installation and Setup 🛠️
 
 ## Getting Started
 
@@ -46,6 +46,6 @@ News Explorer is a responsive web application built with React that enables user
     ```bash
     (http://localhost:3000)
 
-## Live Demo
+## Live Demo 🔗
 
 Check out the live version: [News Explorer](https://enyberg09.github.io/news_explorer/)
